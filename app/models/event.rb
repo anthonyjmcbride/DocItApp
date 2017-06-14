@@ -1,11 +1,16 @@
 class Event < ApplicationRecord
-  belongs_to :users
+  belongs_to :user
 
   def get_info
     # makes use of self.source and self.source_id
     # as well as API wrapper in question
     # should return a hash
-    EventBriteApi.create(self.source)
+    klasses = {
+      "EventBriteApi": EventBriteApi
+    }
+    # EventBriteApi.create()
+    # wrap_parameter format: [:json]
+    # {"source_id": "source"}
   end
 end
 

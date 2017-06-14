@@ -16,4 +16,8 @@ class EventBriteApi
       }
     )
   end
+
+  def search(id)
+    # finds event by id
+  end
 end
