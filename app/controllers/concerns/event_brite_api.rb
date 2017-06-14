@@ -1,19 +1,20 @@
 require 'httparty'
 require 'json'
 
-class EventbriteAPI
+class EventBriteApi
 
-  def initialize(url, parameter)
+  def initialize(url, parameter={})
     @url = url
     @parameter = parameter
   end
 
   def event_getter
-
-    @result = HTTParty.get('https://www.eventbriteapi.com/v3/users/me/owned_events/',
-    headers = {
-        "Authorization": "Bearer XN4WWXR4UVKL4FA4LRXA",
-    },
+    response = HTTParty.get(@url,
+      query: @parameter,
+      headers: {
+        "Authorization" => "Bearer #{ENV['EVENT_BRITE_KEY']}"
+      }
+    )
   end
 
 end
@@ -23,7 +24,7 @@ end
 #   "https://unicom24.ru/api/partners/requests/v1/locality/",
 #   basic_auth: auth
 # )
-# 
+#
 #
 #
 #
