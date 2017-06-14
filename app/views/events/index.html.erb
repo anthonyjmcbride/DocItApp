@@ -1,4 +1,4 @@
-
+<h1>Events</h1>
 <% @event_brite_events.parsed_response["events"].each do |ebe|%>
   <p>description: <%= ebe["description"]["html"].html_safe %></p>
   <hr style="border-bottom:1px solid red;">
