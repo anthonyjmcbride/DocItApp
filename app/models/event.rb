@@ -1,27 +1,23 @@
 class Event < ApplicationRecord
   belongs_to :user
 
-#   include ActiveModel::Model
-# attr_reader :results
-# attr_accessor :query
-# validates :query, presence: true
-# def perform
-#   @event_brite_events
-end
+  def self.get_info(param)
 
-  def get_info
     # makes use of self.source and self.source_id
     # as well as API wrapper in question
     # should return a hash
-    klasses = {
-      "EventBriteApi": EventBriteApi
-    }
+    # klasses = {
+    #   "EventBriteApi":EventBriteApi
+    # }
     # EventBriteApi.create()
     # wrap_parameter format: [:json]
     # {"source_id": "source"}
-
-end
-
-# TransportTruckAPI.create(self, self.user, self.company)
-
-# event_getter method we created in the event_brite_api.rb file
+      unless param.nil?
+        query = param
+      else
+        query = "Miami"
+      end
+      res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",
+      {q: query }).event_getter
+    end
+  end
