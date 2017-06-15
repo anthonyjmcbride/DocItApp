@@ -22,7 +22,5 @@ class EventsController < ApplicationController
       format.json { render 'list' }
 
     end
-
-
   end
 end
