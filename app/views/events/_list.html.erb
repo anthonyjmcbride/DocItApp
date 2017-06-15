@@ -1,0 +1,8 @@
+<% @event_brite_events.parsed_response["events"].each do |ebe|%>
+
+  <p> <%= ebe["description"]["html"].html_safe %></p>
+  <hr style="border-bottom:1px solid red;">
+<% end %>
+<!-- ["description"]["original"].html_safe -->
+<!-- ["url"].html_safe, target: '_blank' -->
+<!-- ebe["description"]["text"].truncate(400) -->

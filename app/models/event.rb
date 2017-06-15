@@ -1,6 +1,14 @@
 class Event < ApplicationRecord
   belongs_to :user
 
+#   include ActiveModel::Model
+# attr_reader :results
+# attr_accessor :query
+# validates :query, presence: true
+# def perform
+#   @event_brite_events
+end
+
   def get_info
     # makes use of self.source and self.source_id
     # as well as API wrapper in question
@@ -11,7 +19,7 @@ class Event < ApplicationRecord
     # EventBriteApi.create()
     # wrap_parameter format: [:json]
     # {"source_id": "source"}
-  end
+
 end
 
 # TransportTruckAPI.create(self, self.user, self.company)

@@ -17,10 +17,17 @@ class EventBriteApi
     )
   end
 
+<<<<<<< HEAD
   def search(id)
     # Event.find(params[:source_id])
     Event.find_by("id")
 
     # finds event by id
   end
+=======
+
+
+
+
+>>>>>>> 2e61eff99bee47b8ac9739e202a4b2d99cac59af
 end

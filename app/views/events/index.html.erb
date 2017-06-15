@@ -1,5 +1,14 @@
-<h1>Events</h1>
-<% @event_brite_events.parsed_response["events"].each do |ebe|%>
-  <p>description: <%= ebe["description"]["html"].html_safe %></p>
-  <hr style="border-bottom:1px solid red;">
+<%= form_tag(search_path, method: "get") do %>
+  <%= text_field_tag(:q) %>
+  <%= submit_tag("Search") %>
 <% end %>
+
+<!-- <%= form_tag search_path, method: :get do %>
+  <%= text_field_tag :query, params[:query] %>
+  <%= submit_tag %>
+<% end %> -->
+
+<h1>EvenBrite</h1>
+<div class="events-list">
+  <%= render 'list' %>
+</div>
