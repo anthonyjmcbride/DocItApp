@@ -14,7 +14,6 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'eventbrite_api'
-gem 'httparty', '~> 0.15.5'
 gem 'rails_12factor', group: :production
 gem 'httparty', '~> 0.15.5'
 gem 'pg', '~> 0.18'
