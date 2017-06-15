@@ -17,10 +17,10 @@ class EventsController < ApplicationController
     else
       query = "Miami"
     end
-    @event_brite_events = EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",
-    {q: query }).event_getter
+    @event_brite_events = EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",{q: query }).event_getter
     respond_to do |format|
-      format.json { render partial: 'list' }
+      format.json { render 'list' }
+
     end
 
 
