@@ -11,6 +11,7 @@ class EventsController < ApplicationController
       respond_to do |format|
         format.json { render partial: 'list' }
       end
+  
 
     else
       query = "Miami"
