@@ -9,10 +9,10 @@ class EventsController < ApplicationController
   end
 
   def show
-    puts "****************************"
-    puts params[:desc]
-    puts "****************************"
     @event = params
+    @current_user = User.find(1)
+    @current_user.events.create(source: params[:event_source], source_id: params[:event_source_id])
+    render json: params
     # id = params[:id]
     # @event = Event.find(1)
   end
