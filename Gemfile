@@ -17,7 +17,6 @@ gem 'eventbrite_api'
 gem 'rails_12factor', group: :production
 gem 'httparty', '~> 0.15.5'
 gem 'pg', '~> 0.18'
-gem 'eventbrite_api'
 
 
 group :development, :test do
