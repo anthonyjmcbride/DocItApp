@@ -1,12 +1,12 @@
 <% @event_brite_events.parsed_response["events"].each do |key|%>
 
-     <p><% key['logo'] %></p>
+    <p><% key['logo'] %></p>
 
-     <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
-     <p><%= image_tag key['original']['url'] if key['original'] %></p>
+    <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
+    <p><%= image_tag key['original']['url'] if key['original'] %></p>
 
-     <p><%= key ["description"]["text"].truncate(400)%></p>
-  <hr style="border-bottom:1px solid red;">
+    <p><%= key ["description"]["text"].truncate(400)%></p>
+ <hr style="border-bottom:1px solid red;">
 <% end %>
 
 <!-- ["description"]["html"].html_safe -->
