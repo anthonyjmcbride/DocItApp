@@ -1,0 +1,20 @@
+
+<% @event_brite_events.parsed_response["events"].each do |key|%>
+  <%= form_tag( { :controller => "events", :action => "show" }, method: "post", local: true) do |form| %>
+
+    <!-- <p><% key['logo'] %></p> -->
+
+    <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
+    <p><%= image_tag key['original']['url'] if key['original'] %></p>
+
+    <!-- <p><%= key ["description"]["text"].truncate(400)%></p> -->
+    <% description = key ["description"]["text"] %>
+    <%= text_field_tag(:desc, description) %>
+
+
+    <div class="actions">
+      <%= submit_tag "DockIt" %>
+    </div>
+   <% end %>
+   <hr style="border-bottom:1px solid red;">
+<% end %>
