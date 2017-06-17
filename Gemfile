@@ -34,7 +34,10 @@ gem 'meetup_client'
 gem 'httparty', '~> 0.15.5'
 gem 'pg', '~> 0.18'
 
-
+# File picture upload (latest version from Paperclip repo)
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+# Google OmniAuth (Authentication)
+gem 'omniauth-google-oauth2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
