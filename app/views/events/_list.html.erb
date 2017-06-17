@@ -1,9 +1,22 @@
 <% @event_brite_events.parsed_response["events"].each do |key|%>
 
-    <p><% key['logo'] %></p>
+    <p><% key %></p>
 
     <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
     <p><%= image_tag key['original']['url'] if key['original'] %></p>
+
+   <p><%= key ["name"]["text"]%></p>
+   <p><%= key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")   %></p>
+
+
+
+
+
+<% if key ["is_free"] == false %>
+  <%= "Paid Event" %>
+<% else %>
+  <%= "Free Event" %>
+<% end %>
 
     <p><%= key ["description"]["text"].truncate(400)%></p>
     <hr style="border-bottom:1px solid red;">

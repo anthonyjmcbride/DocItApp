@@ -17,7 +17,7 @@ class Event < ApplicationRecord
       else
         query = "Miami"
       end
-      res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",
+      @res = EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",
       {q: query }).event_getter
     end
   end
