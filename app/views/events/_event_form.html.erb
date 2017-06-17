@@ -1,6 +1,6 @@
 
-<% @event_brite_events.parsed_response["events"].each do |key|%>
-  <%= form_tag( { :controller => "events", :action => "show" }, method: "post", local: true) do |form| %>
+<%# @event_brite_events.parsed_response["events"].each do |key|%>
+  <%= form_tag( { :controller => "events", :action => "create" }, method: "post", local: true) do |form| %>
 
     <!-- <p><% key['logo'] %></p> -->
     <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
@@ -14,8 +14,8 @@
 
 
     <div class="actions">
-      <%= submit_tag "See Event" %>
+      <%= submit_tag "Dock It" %>
     </div>
    <% end %>
    <hr style="border-bottom:1px solid red;">
-<% end %>
+<%# end %>

@@ -1,5 +1,11 @@
 class EventsController < ApplicationController
 
+  def dashboard
+    @current_user = User.find(1)
+    @events = @current_user.events
+
+  end
+
   def index
     @event_brite_events = Event.get_info(params[:q])
   end
@@ -15,6 +21,12 @@ class EventsController < ApplicationController
     render json: params
     # id = params[:id]
     # @event = Event.find(1)
+  end
+
+  def create
+    @current_user = User.find(1)
+    event = @current_user.events.create(source: params[:event_source], source_id: params[:event_source_id])
+    redirect_to dashboard_events_path()
   end
 
 

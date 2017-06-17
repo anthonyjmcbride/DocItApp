@@ -21,7 +21,15 @@ class Event < ApplicationRecord
       # should return a hash
       # klasses = {
       #   "EventBriteApi":EventBriteApi
-      # }
+      # }s
       # klasses[???]
+
     end
+
+
   end
+
+
+
+
+# @source = @event_brite_events.events.show(source: params[:event_source])
