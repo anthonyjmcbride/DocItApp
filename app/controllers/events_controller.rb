@@ -10,10 +10,6 @@ class EventsController < ApplicationController
     @event_brite_events = Event.get_info(params[:q])
   end
 
-  def haha
-    @event_brite_events = Event.get_info(params[:q])
-  end
-
   def show
     @event = params
     @current_user = User.find(1)
@@ -28,7 +24,6 @@ class EventsController < ApplicationController
     event = @current_user.events.create(source: params[:event_source], source_id: params[:event_source_id])
     redirect_to dashboard_events_path()
   end
-
 
     def search
      @event_brite_events = Event.get_info(params[:q])
