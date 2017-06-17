@@ -6,6 +6,7 @@ class EventBriteApi
   def initialize(url, parameter={})
     @url = url
     @parameter = parameter
+  
   end
 
   def event_getter
