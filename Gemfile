@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'eventbrite_api'
 gem 'rails_12factor', group: :production
+gem 'meetup_client'
 
 
 # Use Capistrano for deployment
