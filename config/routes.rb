@@ -3,7 +3,10 @@ Rails.application.routes.draw do
   # get '/events/:id' => 'events#show'
   post '/events/show' => 'events#show'
   get '/search', to: 'events#index', as: 'search'
-  get '/haha' => 'events#haha'
-  resources :events
+  resources :events do
+    collection do
+      get :dashboard
+    end
+  end
 
 end

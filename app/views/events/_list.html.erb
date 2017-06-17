@@ -1,4 +1,4 @@
-<% @event_brite_events.parsed_response["events"].each do |key|%>
+<% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 
     <p><% key %></p>
 
@@ -19,7 +19,15 @@
 <% end %>
 
     <p><%= key ["description"]["text"].truncate(400)%></p>
-    <hr style="border-bottom:1px solid red;">
+
+
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
+      More Info
+    </button>
+
+    <%= render partial: 'event_info_modal', locals: { index: index, key: key }%>
+   <hr style="border-bottom:1px solid red;">
 <% end %>
 
 <!-- ["description"]["html"].html_safe -->
