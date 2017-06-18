@@ -1,9 +1,4 @@
-class User < ApplicationRecord
-  has_many :events
-
-  # has_attached_file :avatar, styles: { medium: "300x300", thumb: "100x100>" }, default_url: "/image/:style/missing.png"
-  # validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
-
+class SessionsController < ApplicationController
   def create
     auth = request.env["omniauth.auth"]
     user = User.find_by_provider_and_uid(auth["provider"], auth["uid"]) || User.create_with_omniauth(auth)

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'events#index'
   # get '/events/:id' => 'events#show'
   post '/events/show' => 'events#show'
@@ -9,4 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+    root 'sessions#user'
+      match "/auth/google_oauth2/callback" => "sessions#create", via: [:get, :post]
+      
+      get "/signout" => "sessions#destroy", :as => :signout
 end

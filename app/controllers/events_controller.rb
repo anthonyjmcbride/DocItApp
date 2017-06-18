@@ -22,15 +22,15 @@ class EventsController < ApplicationController
   def meetup
     params = {
       category: '1',
-      city: 'London',
-      photo: '',
+      city: 'Miami',
+      # photo: '',
       country: 'US',
       status: 'upcoming',
       format: 'json',
-      page: '50'
+      page: '25'
     }
     meetup_api = MeetupApi.new
-    @events = meetup_api.open_events(params)
+    @meetup_events = meetup_api.open_events(params)
   end
 
   def create
@@ -44,6 +44,8 @@ class EventsController < ApplicationController
       respond_to do |format|
         format.json { render partial: 'list' }
     end
-
+    # @meetup_events = meetup_api.open_events(params)
+      #  respond_to do |format|
+      #    format.json { render partial: 'list' }
   end
 end
