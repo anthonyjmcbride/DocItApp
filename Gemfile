@@ -34,9 +34,12 @@ gem 'meetup_client'
 gem 'httparty', '~> 0.15.5'
 gem 'pg', '~> 0.18'
 
+<<<<<<< HEAD
 # File picture upload (latest version from Paperclip repo)
 gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
 # Google OmniAuth (Authentication)
+=======
+>>>>>>> dfc2eac867d7be703f16c18d955701245c404f6c
 gem 'omniauth-google-oauth2'
 
 group :development, :test do
@@ -45,6 +48,7 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem 'dotenv-rails'
 end
 
 group :development do
@@ -54,6 +58,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
+  gem 'better_errors'
 end
 
 

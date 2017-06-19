@@ -11,5 +11,8 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     redirect_to root_url, :notice => "Signed out!"
   end
+<<<<<<< HEAD
   
+=======
+>>>>>>> dfc2eac867d7be703f16c18d955701245c404f6c
 end

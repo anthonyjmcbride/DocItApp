@@ -22,15 +22,18 @@ class EventsController < ApplicationController
   def meetup
     params = {
       category: '1',
-      city: 'London',
-      photo: '',
+      city: 'Miami',
+      # photo: '',
       country: 'US',
       status: 'upcoming',
       format: 'json',
-      page: '50'
+      page: '25'
     }
     meetup_api = MeetupApi.new
-    @events = meetup_api.open_events(params)
+    @meetup_events = meetup_api.open_events(params)
+    # below is the code to perform a request with open parameters
+    # meetup_api = MeetupApi.new
+    # events = meetup_api.categories({})
   end
 
   def create
