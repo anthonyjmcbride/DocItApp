@@ -33,13 +33,6 @@ gem 'meetup_client'
 
 gem 'httparty', '~> 0.15.5'
 gem 'pg', '~> 0.18'
-
-<<<<<<< HEAD
-# File picture upload (latest version from Paperclip repo)
-gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
-# Google OmniAuth (Authentication)
-=======
->>>>>>> dfc2eac867d7be703f16c18d955701245c404f6c
 gem 'omniauth-google-oauth2'
 
 group :development, :test do
