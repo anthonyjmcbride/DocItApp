@@ -31,6 +31,9 @@ class EventsController < ApplicationController
     }
     meetup_api = MeetupApi.new
     @meetup_events = meetup_api.open_events(params)
+    # below is the code to perform a request with open parameters
+    # meetup_api = MeetupApi.new
+    # events = meetup_api.categories({})
   end
 
   def create
@@ -44,8 +47,6 @@ class EventsController < ApplicationController
       respond_to do |format|
         format.json { render partial: 'list' }
     end
-    # @meetup_events = meetup_api.open_events(params)
-      #  respond_to do |format|
-      #    format.json { render partial: 'list' }
+
   end
 end

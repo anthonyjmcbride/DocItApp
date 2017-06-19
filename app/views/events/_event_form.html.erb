@@ -8,7 +8,7 @@
 
     <!-- <p><%= key ["description"]["text"].truncate(400)%></p> -->
     <% description = key ["description"]["text"] %>
-    <%= text_field_tag(:desc, description) %>
+    <!-- <%= text_field_tag(:desc, description) %> -->
     <%= hidden_field_tag(:event_source_id, key["id"]) %>
     <%= hidden_field_tag(:event_source, "EventBriteApi") %>
 
