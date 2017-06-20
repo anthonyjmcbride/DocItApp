@@ -24,9 +24,12 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'eventbrite_api'
-gem 'rails_12factor', group: :production
+
 gem 'meetup_client'
 
+
+gem 'geocoder'
+# gem 'rb-readline'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

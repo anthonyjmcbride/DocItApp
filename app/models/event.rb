@@ -1,18 +1,32 @@
 class Event < ApplicationRecord
   belongs_to :user
 
-  def self.get_info(param)
 
+  def self.get_info(params)
+
+    # makes use of self.source and self.source_id
+    # as well as API wrapper in question
+    # should return a hash
+    # klasses = {
+    #   "EventBriteApi":EventBriteApi
+    # }
     # EventBriteApi.create()
     # wrap_parameter format: [:json]
     # {"source_id": "source"}
-      unless param.nil?
-        query = param
+    @current_user = User.find(2)
+    @location = @current_user.zipcode
+      if params[:q].nil?
+        query = 'Miami'
       else
-        query = "Miami"
+        query = params[:q]
       end
-      @res = EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",
-      {q: query }).event_getter
+
+      res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",
+      { q: query, "location": {
+        "address": (params[:city].empty? ? 'Miami' : params[:city])
+        }
+      }).event_getter
+
     end
 
     def info
@@ -25,12 +39,6 @@ class Event < ApplicationRecord
       # klasses[???]
 # You get to choose the source, take a look at the hash in your Event model.
 # The source_id changes based on the event you're trying to dock
+
     end
-
-
   end
-
-
-
-
-# @source = @event_brite_events.events.show(source: params[:event_source])
