@@ -4,7 +4,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    # @users = Users.new
+    @users = Users.new
   end
 <<<<<<< HEAD
   
