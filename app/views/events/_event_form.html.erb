@@ -6,6 +6,7 @@
     <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
     <p><%= image_tag key['original']['url'] if key['original'] %></p>
 
+<<<<<<< HEAD
    <!-- <p><%#= key ["description"]["text"].truncate(400)%></p> -->
    <% image = key['logo']['url'] if key['logo'] %>
    <% title = key ["name"]["text"]%>
@@ -21,7 +22,7 @@
   <% else %>
     <% description = nil %>
   <% end %>
-    <!-- <%#= text_field_tag(:desc, description) %> -->
+  
     <%= hidden_field_tag(:event_source_id, key["id"]) %>
     <%= hidden_field_tag(:event_source, title) %>
     <%= hidden_field_tag(:event_date, date) %>

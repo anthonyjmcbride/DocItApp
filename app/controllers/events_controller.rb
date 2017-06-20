@@ -18,7 +18,9 @@ class EventsController < ApplicationController
     # @event = Event.find(1)
   end
 
+
  def meetup
+
     params = {
       category: '1',
       city: 'Miami',
@@ -30,10 +32,11 @@ class EventsController < ApplicationController
     }
     meetup_api = MeetupApi.new
     @meetup_events = meetup_api.open_events(params)
+
   end
 
  def create
-   @event = params
+    @event = params
     @current_user = User.find(1)
     event = @current_user.events.create(source: params[:event_source],source_id: params[:event_source_id],description: params[:event_description],photo: params[:event_photo],price: params[:event_price],date: params[:event_date])
     redirect_to dashboard_events_path()

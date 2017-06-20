@@ -1,9 +1,11 @@
 <%= form_tag(search_path, method: "get") do %><br>
   <p>Search for Events:</p>
   <%= text_field_tag(:q) %>
+<<<<<<< HEAD
   <%= text_field_tag(:city, nil, :required => true) %><span> *City Required.</span><br>
   <br>
   <div><%= submit_tag("Search") %></div>
+
 <% end %>
 
 <!-- <%= form_tag search_path, method: :get do %>
@@ -11,7 +13,11 @@
   <%= submit_tag %>
 <% end %> -->
 
-<h1>EvenBrite</h1>
+<h1>Sign In</h1>
+
+  <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+
+<h1>Events</h1>
 <div class="events-list">
   <%= render 'list' %>
 </div>
