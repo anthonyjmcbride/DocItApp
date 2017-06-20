@@ -1,1 +1,21 @@
-<%= @events.inspect %>
+<% @events.each do |d|%>
+
+ <% d.source_id%><br>
+  <p><img src="<%=d.photo%>"></p>
+
+<p>
+  <strong><%= d.source %></strong>
+</p>
+<p>
+<%= d.date %>
+</p>
+<p>
+  <strong><%= d.price %></strong>
+</p>
+<p>
+<%= d.description %>
+</p>
+
+<hr style="border-bottom:1px solid red;">
+
+<% end%>

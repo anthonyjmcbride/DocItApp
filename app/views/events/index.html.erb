@@ -1,7 +1,9 @@
-<%= form_tag(search_path, method: "get") do %>
+<%= form_tag(search_path, method: "get") do %><br>
+  <p>Search for Events:</p>
   <%= text_field_tag(:q) %>
-
-  <%= submit_tag("Search") %>
+  <%= text_field_tag(:city, nil, :required => true) %><span> *City Required.</span><br>
+  <br>
+  <div><%= submit_tag("Search") %></div>
 <% end %>
 
 <!-- <%= form_tag search_path, method: :get do %>

@@ -24,9 +24,9 @@ gem 'jbuilder', '~> 2.5'
 
 
 gem 'eventbrite_api'
-gem 'rails_12factor', group: :production
-gem 'geocoder'
 
+gem 'geocoder'
+# gem 'rb-readline'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
