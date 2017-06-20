@@ -28,8 +28,8 @@ class EventsController < ApplicationController
       format: 'json',
       page: '25'
     }
-    meetup_api = MeetupApi.new
-    @meetup_events = meetup_api.open_events(params)
+    # meetup_api = MeetupApi.new
+    # @meetup_events = meetup_api.open_events(params)
   end
 
  def create
@@ -40,7 +40,7 @@ class EventsController < ApplicationController
   end
 
    def search
-     @event_brite_events = Event.get_info(params[:q])
+     @event_brite_events = Event.get_info(params)
       respond_to do |format|
       format.json { render partial: 'list' }
     end
@@ -49,7 +49,3 @@ class EventsController < ApplicationController
       #    format.json { render partial: 'list' }
   end
 end
-
-def event_params
-      params.permit()
-    end

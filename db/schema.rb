@@ -32,6 +32,8 @@ ActiveRecord::Schema.define(version: 20170619233205) do
     t.datetime "updated_at", null: false
     t.float "latitud"
     t.float "longitude"
+    t.string "provider"
+    t.string "uid"
   end
 
 end
