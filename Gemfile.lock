@@ -133,22 +133,12 @@ GEM
     omniauth (1.6.1)
       hashie (>= 3.4.6, < 3.6.0)
       rack (>= 1.6.2, < 3)
-<<<<<<< HEAD
-    omniauth-google-oauth2 (0.2.10)
-      addressable (~> 2.3)
-      jwt (~> 1.0)
-      multi_json (~> 1.3)
-      omniauth (>= 1.1.1)
-      omniauth-oauth2 (~> 1.3.1)
-    omniauth-oauth2 (1.3.1)
-=======
     omniauth-google-oauth2 (0.5.0)
       jwt (~> 1.5)
       multi_json (~> 1.3)
       omniauth (>= 1.1.1)
       omniauth-oauth2 (>= 1.3.1)
     omniauth-oauth2 (1.4.0)
->>>>>>> dfc2eac867d7be703f16c18d955701245c404f6c
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     pg (0.21.0)
