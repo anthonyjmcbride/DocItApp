@@ -27,7 +27,8 @@ gem 'eventbrite_api'
 
 gem 'meetup_client'
 
-
+# for user avatar
+gem "paperclip", "~> 5.0.0"
 gem 'geocoder'
 # gem 'rb-readline'
 

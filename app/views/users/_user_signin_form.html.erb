@@ -1,8 +1,13 @@
 
 <h1>Signup!</h1>
 
-<%= form_for :user, url: '/users' do |f| %>
+<!-- Paperclip - form to upload image -->
+<!-- <%= form_for @user, url: '/users', html: { multipart: true } do |form| %>
+  <%= form.file_field :avatar %>
+<% end %> -->
 
+<%= form_for :user, url: '/users', html: { multipart: true } do |f| %>
+  ProfilePic: <%= form.file_field :avatar %>
   Name: <%= f.text_field :name %>
   Email: <%= f.text_field :email %>
   Password: <%= f.password_field :password %>
