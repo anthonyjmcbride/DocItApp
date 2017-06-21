@@ -12,7 +12,7 @@
 
 
 ActiveRecord::Schema.define(version: 20170619233205) do
->>>>>>> 97242b0c7aedd67e50a8c88f30fb1a6e8ab7f892
+
 
   create_table "events", force: :cascade do |t|
     t.string "source"

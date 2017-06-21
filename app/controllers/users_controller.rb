@@ -6,9 +6,7 @@ class UsersController < ApplicationController
   def index
     @users = Users.new
   end
-<<<<<<< HEAD
-  
-=======
+
 
 #   def create
 #     user = User.new(user_params)
@@ -25,5 +23,5 @@ class UsersController < ApplicationController
 #     params.require(:user).permit(:name, :email, :password, :password_confirmation, :zicode)
 #   end
 
->>>>>>> dfc2eac867d7be703f16c18d955701245c404f6c
+
 end
