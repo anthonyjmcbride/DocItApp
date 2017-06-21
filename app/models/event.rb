@@ -21,7 +21,6 @@ class Event < ApplicationRecord
         query = params[:q] +"%"+ params[:city]
       end
 
-      res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",
-      { q:query  }).event_getter
+      res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/", { q:query }).event_getter
     end
   end

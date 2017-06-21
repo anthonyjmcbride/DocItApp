@@ -21,8 +21,7 @@
   <% else %>
     <% description = nil %>
   <% end %>
-    <!-- <%#= text_field_tag(:desc, description) %> -->
-
+  
     <%= hidden_field_tag(:event_source_id, key["id"]) %>
     <%= hidden_field_tag(:event_source, title) %>
     <%= hidden_field_tag(:event_date, date) %>
