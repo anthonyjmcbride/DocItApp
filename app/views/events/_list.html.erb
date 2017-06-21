@@ -1,24 +1,24 @@
 <% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 
-    <p><% key %></p>
+    <p><% key %><% index %></p>
 
     <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
     <p><%= image_tag key['original']['url'] if key['original'] %></p>
 
-   <p><%= key ["name"]["text"]%></p>
-   <p><%= key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")   %></p>
-
-
-
-
-
-<% if key ["is_free"] == false %>
-  <%= "Paid Event" %>
-<% else %>
-  <%= "Free Event" %>
-<% end %>
-
-    <p><%= key ["description"]["text"].truncate(400)%></p>
+    <strong><p><%= key ["name"]["text"]%></p></strong>
+    <p><%= key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")   %></p>
+    <p>
+    <strong>
+    <% if key ["is_free"] == false %>
+    <%= "Paid Event" %>
+    <% else %>
+    <%= "Free Event" %>
+    <% end %>
+    </strong>
+    </p>
+    <% unless key["description"]["text"].nil? %>
+      <p><%= key["description"]["text"].truncate(400)%></p>
+    <% end %>
 
 
     <!-- Button trigger modal -->

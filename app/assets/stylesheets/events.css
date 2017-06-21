@@ -1,3 +1,18 @@
 // Place all the styles related to the events controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.btn-del {
+  text-decoration: none;
+
+}
+
+.dock_event {
+
+  margin-top: 10px;
+  margin-bottom: 45px;
+}
+
+@media (min-width: 768px){ .col-md-5 {
+    max-width: 60%;
+  }
+}

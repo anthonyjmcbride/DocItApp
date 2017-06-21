@@ -17,6 +17,9 @@ ActiveRecord::Schema.define(version: 20170620233051) do
     t.string "source_id"
     t.integer "user_id"
     t.text "description"
+    t.text "photo"
+    t.string "date"
+    t.string "price"
   end
 
   create_table "users", force: :cascade do |t|
@@ -31,6 +34,8 @@ ActiveRecord::Schema.define(version: 20170620233051) do
     t.string "uid"
     t.string "refresh_token"
     t.string "access_token"
+    t.float "latitud"
+    t.float "longitude"
   end
 
 end
