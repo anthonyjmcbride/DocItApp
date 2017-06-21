@@ -5,6 +5,10 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
+
 ruby '2.4.1'
 gem 'rails', '~> 5.1.1'
 
@@ -33,8 +37,9 @@ gem 'geocoder'
 
 gem 'httparty', '~> 0.15.5'
 gem 'pg', '~> 0.18'
-
-
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'sprockets', '~> 3.0'
+gem 'jquery-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

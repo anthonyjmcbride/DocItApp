@@ -13,7 +13,7 @@ class Event < ApplicationRecord
     # EventBriteApi.create()
     # wrap_parameter format: [:json]
     # {"source_id": "source"}
-    @current_user = User.find(2)
+    @current_user = User.find(1)
     @location = @current_user.zipcode
       if params[:q].blank?
         query = @location
