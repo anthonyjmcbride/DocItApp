@@ -1,4 +1,11 @@
-<h1>Sign In</h1>
+<h1>Login</h1>
 
+<%= form_tag '/login' do %>
 
-<%= link_to "Sign in with Google", "/auth/google_oath2" %>
+  Email: <%= text_field_tag :email %>
+  Password: <%= password_field_tag :password %>
+  <%= submit_tag "Submit" %>
+
+  <%= link_to "Sign in with Google", "/auth/google_oath2" %>
+
+<% end %>

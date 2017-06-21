@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620014439) do
+ActiveRecord::Schema.define(version: 20170621072744) do
 
   create_table "events", force: :cascade do |t|
     t.string "source"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(version: 20170620014439) do
     t.string "uid"
     t.float "latitud"
     t.float "longitude"
+    t.string "password_digest"
   end
 
 end
