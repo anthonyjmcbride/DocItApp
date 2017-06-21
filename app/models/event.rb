@@ -23,8 +23,7 @@ class Event < ApplicationRecord
       #   "EventBriteApi":EventBriteApi
       # }s
       # klasses[???]
-# You get to choose the source, take a look at the hash in your Event model.
-# The source_id changes based on the event you're trying to dock
+
     end
 
 

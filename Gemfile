@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'eventbrite_api'
 gem 'rails_12factor', group: :production
 gem 'meetup_client'
-
+gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development

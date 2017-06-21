@@ -1,4 +1,4 @@
-class EventsController < ApplicationController
+ class EventsController < ApplicationController
 
   def dashboard
     @current_user = User.find(1)
@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   def index
     @event_brite_events = Event.get_info(params[:q])
+    @meetup = meetup
   end
 
   def show
@@ -17,23 +18,6 @@ class EventsController < ApplicationController
     render json: params
     # id = params[:id]
     # @event = Event.find(1)
-  end
-
-  def meetup
-    params = {
-      category: '1',
-      city: 'Miami',
-      # photo: '',
-      country: 'US',
-      status: 'upcoming',
-      format: 'json',
-      page: '25'
-    }
-    meetup_api = MeetupApi.new
-    @meetup_events = meetup_api.open_events(params)
-    # below is the code to perform a request with open parameters
-    # meetup_api = MeetupApi.new
-    # events = meetup_api.categories({})
   end
 
   def create
@@ -49,4 +33,26 @@ class EventsController < ApplicationController
     end
 
   end
+
+  private
+
+    def meetup
+      params = {
+        category: '1',
+        city: 'Miami',
+        country: 'US',
+        state: 'FL',
+        zip: '33175',
+        topic: 'tech',
+        text: 'AND',
+        status: 'upcoming',
+        text_format: 'html',
+        page: '25'
+      }
+      meetup_api = MeetupApi.new
+      events = meetup_api.open_events(params)
+      # below is the code to perform a request with open parameters
+      # meetup_api = MeetupApi.new
+      # events = meetup_api.categories({})
+    end
 end

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170617233105) do
+ActiveRecord::Schema.define(version: 20170620233051) do
 
   create_table "events", force: :cascade do |t|
     t.string "source"
@@ -29,6 +29,8 @@ ActiveRecord::Schema.define(version: 20170617233105) do
     t.datetime "updated_at", null: false
     t.string "provider"
     t.string "uid"
+    t.string "refresh_token"
+    t.string "access_token"
   end
 
 end
