@@ -1,6 +1,6 @@
 <% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 
-    <p><% key %><% index %></p>
+    <!-- <p><%= key %><%= index %></p> -->
 
     <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
     <p><%= image_tag key['original']['url'] if key['original'] %></p>

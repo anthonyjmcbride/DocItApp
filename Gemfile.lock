@@ -110,6 +110,7 @@ GEM
       os (~> 0.9)
       signet (~> 0.7)
     hashie (3.5.5)
+    hirb (0.7.3)
     httparty (0.15.5)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
@@ -284,6 +285,7 @@ DEPENDENCIES
   eventbrite_api
   geocoder
   google-api-client (~> 0.11)
+  hirb
   httparty (~> 0.15.5)
   jbuilder (~> 2.5)
   jquery-rails

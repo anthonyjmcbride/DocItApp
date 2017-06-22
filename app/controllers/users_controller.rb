@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   #   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\z/
 
   def new
+    puts "********** test **********"
   end
 
   def index
