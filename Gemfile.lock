@@ -280,12 +280,10 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-<<<<<<< HEAD
+
   bcrypt (~> 3.1.7)
-=======
   better_errors
   bootstrap!
->>>>>>> 8baa26053455515494f034d43fc1871738a566be
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
