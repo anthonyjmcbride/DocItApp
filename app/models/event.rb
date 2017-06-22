@@ -14,7 +14,7 @@ class Event < ApplicationRecord
 
       res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/", { q:query }).event_getter
     end
-    # def self.get_meetup_info(params)
+    # def self.get_ticket_info(params)
     #   @current_user = User.find(1)
     #   @location = @current_user.zipcode
     #       params[:text] = params[:q]
@@ -27,10 +27,10 @@ class Event < ApplicationRecord
     #       query = params[:text] +"%"+ params[:city]
     #     end
     #
-    #     res= MeetupApi.new("https://api.meetup.com/find/events/?key=").meetup_getter(query)
+    #     res= TicketMasterApi.new("https://api.meetup.com/find/events/?key=").ticketm_getter(query)
     #   end
 
-      def self.get_meetup_info(params)
+      def self.get_ticket_info(params)
         @current_user = User.find(1)
         @location = @current_user.zipcode
             params[:city] = params[:q]
@@ -43,7 +43,7 @@ class Event < ApplicationRecord
             query = params[:city] +"%"+ params[:city]
           end
 
-    res= MeetupApi.new("https://app.ticketmaster.com/discovery/v2/events.curl?apikey=").meetup_getter(query)
+    res= TicketMasterApi.new.ticketm_getter(query)
         end
 end
 # MAPGpwLZjmR7v1hhu4cqAdlLAUPGdab4&city=miami

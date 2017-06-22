@@ -1,12 +1,11 @@
 require 'httparty'
 require 'json'
 
-class MeetupApi
-  def initialize(url)
-    @url = url
-  end
+class TicketMasterApi
 
-  def meetup_getter(query)
+
+  def ticketm_getter(query)
+    @url = "https://app.ticketmaster.com/discovery/v2/events.curl?apikey="
     response = HTTParty.get(@url + "#{ENV['TICKET_API_KEY']}",city: "Miami")
     JSON.parse(response.parsed_response)
   end

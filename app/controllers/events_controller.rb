@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   def index
     @event_brite_events = Event.get_info(params)
-    @meet_up_events = Event.get_meetup_info(params)
+    @meet_up_events = Event.get_ticket_info(params)
   end
 
   def show
@@ -30,7 +30,7 @@ class EventsController < ApplicationController
 
   def search
     @event_brite_events = Event.get_info(params)
-    @meet_up_events = Event.get_meetup_info(params)
+    @meet_up_events = Event.get_ticket_info(params)
     respond_to do |format|
       format.json { render partial: 'list' }
     end
