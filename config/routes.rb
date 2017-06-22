@@ -29,10 +29,6 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
-    root 'sessions#user'
-      match "/auth/google_oauth2/callback" => "sessions#create", via: [:get, :post]
-
-      get "/signout" => "sessions#destroy", :as => :signout
       # get '/redirect', to: 'example#redirect', as: 'redirect'
       # get '/callback', to: 'example#callback', as: 'callback'
 
