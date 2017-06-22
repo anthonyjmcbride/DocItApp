@@ -30,12 +30,12 @@ ActiveRecord::Schema.define(version: 20170620233051) do
     t.string "calendar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "latitud"
+    t.float "longitude"
     t.string "provider"
     t.string "uid"
     t.string "refresh_token"
     t.string "access_token"
-    t.float "latitud"
-    t.float "longitude"
   end
 
 end

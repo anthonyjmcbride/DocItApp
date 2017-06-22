@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   def index
     @event_brite_events = Event.get_info(params)
+    @meet_up_events = Event.get_meetup_info(params)
   end
 
   def show
