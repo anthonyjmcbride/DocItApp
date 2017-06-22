@@ -1,21 +1,84 @@
-<% @meet_up_events["_embedded"]["events"].each_with_index do |tk, index|%>
+<!--  Eventbrite API Filter and some CSS with BS -->
+<% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
+<!--  File for testin API, full info-->
+<p><% key %><% index %></p>
+<!--  start event for eventbrite -->
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <img class="img-thumbnail" <%= image_tag key['logo']['url'] if key['logo'] %>
+      <!-- <img class="img-thumbnail" <%= image_tag key['original']['url'] if key['original'] %> -->
+    </div>
+    <div class="col-sm-6">
+      <div class="dock_event">
 
+        <strong><p><%= key ["name"]["text"]%></p></strong>
+        <p><%= key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")  %></p>
 
-<% tk  %>
-<strong><p><%= tk ["name"]%></p></strong>
+          <strong>
 
-<strong><p>On Sale</strong><br>
-Start Date: <%= tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
-<br>
-End Date:  <%= tk["sales"]["public"]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p>
+            <% if key ["is_free"] == false %>
+            <%= "Paid Event" %>
+            <% else %>
+            <%= "Free Event" %>
+            <% end %>
 
-<%= image_tag tk["images"][1]["url"] if ["images"]  %>
+          </strong>
 
-<div class="ticket_price">Ticket Price: From
-<%= tk["priceRanges"][0]["min"]  %> to
-<%= tk["priceRanges"][0]["max"]  %>
-<%= tk["priceRanges"][0]["currency"]  %>.
+        <% unless key["description"]["text"].nil? %>
+        <p><%= key["description"]["text"].truncate(400)%></p>
+        <% end %>
+
+        <!--Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
+          More Info
+        </button>
+      </div>
+    </div>
+  </div>
+  <span>
+    <hr style="border-bottom:1px solid red;">
+  </span>
 </div>
+
+    <%= render partial: 'event_info_modal', locals: { index: index, key: key }%>
+<% end %>
+
+
+<!--  TicketMaster API Filter and some CSS with BS -->
+
+<% @ticketm_events["_embedded"]["events"].each_with_index do |tk, index|%>
+<!--  File for testin API, full info-->
+<% tk  %>
+<!--  start event for ticketmaster -->
+<div class="container">
+<div class="row">
+  <div class="col-sm-6">
+    <img class="img-thumbnail ticket-img"<%= image_tag tk["images"][1]["url"] if ["images"] %>
+  </div>
+  <div class="col-sm-6">
+    <div class="dock_event">
+
+      <strong><p><%= tk ["name"]%></p></strong>
+
+      <strong><p>On Sale</strong><br>
+        Start Date: <%= tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
+        <br>
+        End Date:  <%= tk["sales"]["public"]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p>
+
+        <div class="ticket_price">Ticket Price: From
+          $<%= tk["priceRanges"][0]["min"]  %> to
+          $<%= tk["priceRanges"][0]["max"]  %>
+          <%= tk["priceRanges"][0]["currency"]  %>.
+        </div>
+      </div>
+    </div>
+  </div>
+    </span>
+      <hr style="border-bottom:1px solid red;">
+    </span>
+</div>
+
 
 <%#= tk["description"] %>
 <!-- <p>On PRE-Sale:<br>
@@ -23,52 +86,9 @@ Start Date:<%#= tk["sales"]["presales"] %> -->
 <!-- <br>
 End Date:<%#= tk["sales"]"public"][]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p> -->
 
-
-
-
-
-<hr style="border-bottom:1px solid red;">
-
 <% end %>
-<!-- h["flights"]["flight"]["segments"]["segment"]
 
 
-
-
-
-
-
-<% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
-
-    <p><% key %><% index %></p>
-
-    <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
-    <p><%= image_tag key['original']['url'] if key['original'] %></p>
-
-    <strong><p><%= key ["name"]["text"]%></p></strong>
-    <p><%= key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")   %></p>
-    <p>
-    <strong>
-    <% if key ["is_free"] == false %>
-    <%= "Paid Event" %>
-    <% else %>
-    <%= "Free Event" %>
-    <% end %>
-    </strong>
-    </p>
-    <% unless key["description"]["text"].nil? %>
-      <p><%= key["description"]["text"].truncate(400)%></p>
-    <% end %>
-
-
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
-      More Info
-    </button>
-
-    <%= render partial: 'event_info_modal', locals: { index: index, key: key }%>
-   <hr style="border-bottom:1px solid red;">
-<% end %>
 
 <!-- ["description"]["html"].html_safe -->
 <!-- ["url"].html_safe, target: '_blank' -->

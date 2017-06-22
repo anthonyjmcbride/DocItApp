@@ -6,13 +6,20 @@
 
 }
 
+.ticket-img {
+
+  width: 410px;
+  height: 100%;
+
+}
+
 .dock_event {
 
   margin-top: 10px;
   margin-bottom: 45px;
 }
 
-@media (min-width: 768px){ .col-md-5 {
+/*@media (min-width: 768px){ .col-md-5 {
     max-width: 60%;
   }
-}
+}*/
