@@ -4,15 +4,6 @@ class Event < ApplicationRecord
 
   def self.get_info(params)
 
-    # makes use of self.source and self.source_id
-    # as well as API wrapper in question
-    # should return a hash
-    # klasses = {
-    #   "EventBriteApi":EventBriteApi
-    # }
-    # EventBriteApi.create()
-    # wrap_parameter format: [:json]
-    # {"source_id": "source"}
     @current_user = User.find(1)
     @location = @current_user.zipcode
       if params[:q].blank?
@@ -24,8 +15,7 @@ class Event < ApplicationRecord
       res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/", { q:query }).event_getter
     end
     def self.get_meetup_info(params)
-      # @current_user = User.find(1)
-      # @location = @current_user.zipcode
+  
           params[:text] = params[:q]
           # first load
         if params[:text].blank?
