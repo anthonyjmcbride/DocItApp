@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     end
   end
 
+
   # these routes are for showing users a login form, logging them in, and logging them out.
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
@@ -27,5 +28,12 @@ Rails.application.routes.draw do
   # receive the form and create a user in our database using the data given to us by the user.
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
+
+    root 'sessions#user'
+      match "/auth/google_oauth2/callback" => "sessions#create", via: [:get, :post]
+
+      get "/signout" => "sessions#destroy", :as => :signout
+      # get '/redirect', to: 'example#redirect', as: 'redirect'
+      # get '/callback', to: 'example#callback', as: 'callback'
 
 end

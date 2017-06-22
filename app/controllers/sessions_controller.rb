@@ -31,4 +31,32 @@ class SessionsController < ApplicationController
   end
 
 
+
+# This is the action to add a new event into the google calendar!
+
+# def new_event
+#     client = Signet::OAuth2::Client.new({
+#       client_id: Rails.application.secrets.google_client_id,
+#       client_secret: Rails.application.secrets.google_client_secret,
+#       token_credential_uri: 'https://accounts.google.com/o/oauth2/token'
+#     })
+#
+#     client.update!(session[:authorization])
+#
+#     service = Google::Apis::CalendarV3::CalendarService.new
+#     service.authorization = client
+#
+#     today = Date.today
+#
+#     event = Google::Apis::CalendarV3::Event.new({
+#       start: Google::Apis::CalendarV3::EventDateTime.new(date: today),
+#       end: Google::Apis::CalendarV3::EventDateTime.new(date: today + 1),
+#       summary: 'New event!'
+#     })
+#
+#     service.insert_event(params[:calendar_id], event)
+#
+#     redirect_to events_url(calendar_id: params[:calendar_id])
+#   end
+
 end

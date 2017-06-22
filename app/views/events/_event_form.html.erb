@@ -37,6 +37,10 @@
    <div class="actions">
       <%= submit_tag "Dock It" %>
     </div>
-   <% end %>
 
-<%# end %>
+    <div class="sync-to-calendar">
+      <%= form_tag new_event_url do %>
+      <%= submit_tag "Sync To Calendar" %>
+      <% end %>
+    </div>
+   <% end %>

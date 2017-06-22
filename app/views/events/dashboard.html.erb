@@ -1,11 +1,19 @@
+<section>
+
 <% @events.each do |d|%>
 
- <% d.source_id%><br>
-  <p><img src="<%=d.photo%>"></p>
 
-<p>
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-6">
+  <div class="img-thumbnail">
+
+ <%= d.source_id%><br>
+  <img src="<%=d.photo%>">
+</div>
+    <div class="dock_event">
   <strong><%= d.source %></strong>
-</p>
+
 <p>
 <%= d.date %>
 </p>
@@ -15,7 +23,12 @@
 <p>
 <%= d.description %>
 </p>
+<button type="button" id="" class="btn pull-center btn-primary btn-lg"><%= link_to 'DELETE', event_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %></button>
 
-<hr style="border-bottom:1px solid red;">
-
+</div>
+</div>
+<span>
+  <hr style="border-bottom:1px solid red;">
+</span>
 <% end%>
+</section>

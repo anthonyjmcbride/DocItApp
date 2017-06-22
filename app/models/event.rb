@@ -13,19 +13,14 @@ class Event < ApplicationRecord
     # EventBriteApi.create()
     # wrap_parameter format: [:json]
     # {"source_id": "source"}
-    @current_user = User.find(2)
+    @current_user = User.find(1)
     @location = @current_user.zipcode
-      if params[:q].nil?
-        query = 'Miami'
+      if params[:q].blank?
+        query = @location
       else
-        query = params[:q]
+        query = params[:q] +"%"+ params[:city]
       end
 
-      res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/",
-      { q: query, "location": {
-        "address": (params[:city].blank? ? 'Miami' : params[:city])
-        }
-      }).event_getter
-
+      res= EventBriteApi.new("https://www.eventbriteapi.com/v3/events/search/", { q:query }).event_getter
     end
   end
