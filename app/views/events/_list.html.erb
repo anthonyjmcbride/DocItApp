@@ -1,5 +1,17 @@
-<%=   @meet_up_events.parsed_response %>
+<%   @meet_up_events.parsed_response.each_with_index do |t| %>
 
+<p><% t["name"] %></p>
+<p><%= t %></p>
+<!-- <p><%= t['venue'] %></p>
+<p><%= t['link'] %></p>
+<p><%= t["localized_location"] %></p>
+<p><%= t["description"] %></p> -->
+
+
+
+<hr style="border-bottom:1px solid red;">
+
+<% end %>
 <% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 
     <p><% key %><% index %></p>

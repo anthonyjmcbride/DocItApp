@@ -3,10 +3,8 @@ require 'json'
 
 class MeetupApi
 
-  def initialize(url, parameter={})
+  def initialize(url)
     @url = url
-    @parameter = parameter
-
   end
 
   def meetup_getter(query)

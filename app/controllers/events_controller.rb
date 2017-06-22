@@ -20,19 +20,19 @@ class EventsController < ApplicationController
     # @event = Event.find(1)
   end
 
-  def meetup
-    params = {
-      category: '1',
-      city: 'Miami',
-      # photo: '',
-      country: 'US',
-      status: 'upcoming',
-      format: 'json',
-      page: '25'
-    }
-    meetup_api = MeetupApi.new
-    @meetup_events = meetup_api.open_events(params)
-  end
+  # def meetup
+  #   params = {
+  #     category: '1',
+  #     city: 'Miami',
+  #     # photo: '',
+  #     country: 'US',
+  #     status: 'upcoming',
+  #     format: 'json',
+  #     page: '25'
+  #   }
+  #   meetup_api = MeetupApi.new
+  #   @meetup_events = meetup_api.open_events(params)
+  # end
 
  def create
     @event = params
@@ -43,6 +43,7 @@ class EventsController < ApplicationController
 
   def search
     @event_brite_events = Event.get_info(params)
+    # @meet_up_events = Event.get_meetup_info(params)
     respond_to do |format|
       format.json { render partial: 'list' }
     end
@@ -63,25 +64,25 @@ class EventsController < ApplicationController
 
   private
 
-    def meetup
-      params = {
-        category: '1',
-        city: 'Miami',
-        country: 'US',
-        state: 'FL',
-        zip: '33175',
-        topic: 'tech',
-        text: 'AND',
-        status: 'upcoming',
-        text_format: 'html',
-        page: '25'
-      }
-      meetup_api = MeetupApi.new
-      events = meetup_api.open_events(params)
-      # below is the code to perform a request with open parameters
-      # meetup_api = MeetupApi.new
-      # events = meetup_api.categories({})
-    end
+    # def meetup
+    #   params = {
+    #     category: '1',
+    #     city: 'Miami',
+    #     country: 'US',
+    #     state: 'FL',
+    #     zip: '33175',
+    #     topic: 'tech',
+    #     text: 'AND',
+    #     status: 'upcoming',
+    #     text_format: 'html',
+    #     page: '25'
+    #   }
+    #   meetup_api = MeetupApi.new
+    #   events = meetup_api.open_events(params)
+    #   # below is the code to perform a request with open parameters
+    #   # meetup_api = MeetupApi.new
+    #   # events = meetup_api.categories({})
+    # end
 end
 
 private
