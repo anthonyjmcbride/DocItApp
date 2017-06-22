@@ -1,17 +1,43 @@
-<%   @meet_up_events.parsed_response.each_with_index do |t| %>
+<% @meet_up_events["_embedded"]["events"].each_with_index do |tk, index|%>
 
-<p><% t["name"] %></p>
-<p><%= t %></p>
-<!-- <p><%= t['venue'] %></p>
-<p><%= t['link'] %></p>
-<p><%= t["localized_location"] %></p>
-<p><%= t["description"] %></p> -->
+
+<%= tk  %>
+<strong><p><%= tk ["name"]%></p></strong>
+
+<strong><p>On Sale</strong><br>
+Start Date: <%= tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
+<br>
+End Date:  <%= tk["sales"]["public"]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p>
+
+<%= image_tag tk["images"][1]["url"] if ["images"]  %>
+
+<div class="ticket_price">Ticket Price: From
+<%= tk["priceRanges"][0]["min"]  %> to
+<%= tk["priceRanges"][0]["max"]  %>
+<%= tk["priceRanges"][0]["currency"]  %>.
+</div>
+
+<%#= tk["description"] %>
+<!-- <p>On PRE-Sale:<br>
+Start Date:<%#= tk["sales"]["presales"] %> -->
+<!-- <br>
+End Date:<%#= tk["sales"]"public"][]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p> -->
+
+
 
 
 
 <hr style="border-bottom:1px solid red;">
 
 <% end %>
+<!-- h["flights"]["flight"]["segments"]["segment"]
+
+
+
+
+
+
+
 <% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 
     <p><% key %><% index %></p>
