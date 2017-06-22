@@ -1,6 +1,6 @@
 
 <%# @event_brite_events.parsed_response["events"].each do |key|%>
-  <%= form_tag( { :controller => "events", :action => "create" }, method: "post", local: true) do |form| %>
+  <%= form_tag( { :controller => "events", :action => "create" }, method: "post", local: true) do %>
 
    <!-- <p><%# key['logo'] %></p> -->
     <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
@@ -21,7 +21,7 @@
   <% else %>
     <% description = nil %>
   <% end %>
-  
+
     <%= hidden_field_tag(:event_source_id, key["id"]) %>
     <%= hidden_field_tag(:event_source, title) %>
     <%= hidden_field_tag(:event_date, date) %>
@@ -34,13 +34,11 @@
     <% end %>
 
 
-   <div class="actions">
+     <div class="actions">
       <%= submit_tag "Dock It" %>
     </div>
 
-    <div class="sync-to-calendar">
-      <%= form_tag new_event_url do %>
-      <%= submit_tag "Sync To Calendar" %>
-      <% end %>
-    </div>
-   <% end %>
+    <div class="actions">
+      <%= button_to 'Sync To Calendar', { :controller => "events", :action => "sync_to_calendar" } %>
+    </div>      
+<% end %>

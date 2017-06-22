@@ -12,7 +12,7 @@ class EventsController < ApplicationController
   end
 
   def show
-    #@event = params
+    # @event = params
     @current_user = User.find(1)
     @current_user.events.create(source: params[:event_source],source_id: params[:event_source_id],description: params[:event_description],photo: params[:event_photo],price: params[:event_price],date: params[:event_date])
     render json: params
@@ -20,19 +20,14 @@ class EventsController < ApplicationController
     # @event = Event.find(1)
   end
 
-  def meetup
-    params = {
-      category: '1',
-      city: 'Miami',
-      # photo: '',
-      country: 'US',
-      status: 'upcoming',
-      format: 'json',
-      page: '25'
-    }
-    meetup_api = MeetupApi.new
-    @meetup_events = meetup_api.open_events(params)
+  def sync_to_calendar
+    # @events.find(source_id: params[:event_source_id])
+    # # # find out which event is meant to be synched
+    # # # grab the info from the api OR the database (depending on if they've dock'd it or not)
+    # # # sync to google with some magic...
+    Event.where(source_id: params[:event_source_id])
   end
+
 
  def create
     @event = params
@@ -61,27 +56,7 @@ class EventsController < ApplicationController
     end
   end
 
-  private
 
-    def meetup
-      params = {
-        category: '1',
-        city: 'Miami',
-        country: 'US',
-        state: 'FL',
-        zip: '33175',
-        topic: 'tech',
-        text: 'AND',
-        status: 'upcoming',
-        text_format: 'html',
-        page: '25'
-      }
-      meetup_api = MeetupApi.new
-      events = meetup_api.open_events(params)
-      # below is the code to perform a request with open parameters
-      # meetup_api = MeetupApi.new
-      # events = meetup_api.categories({})
-    end
 end
 
 private
