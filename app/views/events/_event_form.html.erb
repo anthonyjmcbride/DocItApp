@@ -19,7 +19,7 @@
   <% unless key["description"]["text"].nil? %>
     <% description = key["description"]["text"].truncate(400) %>
   <% else %>
-    <% description = nil %>
+    <% description = nil %> 
   <% end %>
 
     <%= hidden_field_tag(:event_source_id, key["id"]) %>
@@ -39,7 +39,6 @@
     </div>
 
     <div class="actions">
-      <!-- <# button_to 'Sync To Calendar', { :controller => "events", :action => "sync_to_calendar" } %> -->
-      <%= link_to "Sync To Calendar", events_sync_to_calendar_path(id: '31405095486')	 %>
+      <%= link_to "Sync To Calendar", "https://calendar.google.com/calendar/render?action=TEMPLATE&text=#{title}&#{date}&#{description},+link+here:+http://www.example.com&location=549+NW+28+street+10022&sf=true&output=xml",	{:target=>"_blank"} %>
     </div>
 <% end %>
