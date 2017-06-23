@@ -39,6 +39,7 @@
     </div>
 
     <div class="actions">
-      <%= button_to 'Sync To Calendar', { :controller => "events", :action => "sync_to_calendar" } %>
-    </div>      
+      <!-- <# button_to 'Sync To Calendar', { :controller => "events", :action => "sync_to_calendar" } %> -->
+      <%= link_to "Sync To Calendar", events_sync_to_calendar_path(id: '31405095486')	 %>
+    </div>
 <% end %>
