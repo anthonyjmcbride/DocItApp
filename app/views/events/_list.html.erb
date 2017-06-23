@@ -1,13 +1,14 @@
 <!--  Eventbrite API Filter and some CSS with BS -->
-<% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
+<%# @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 <!--  File for testin API, full info-->
-<p><% key %><% index %></p>
+<!-- <p><% key %><% index %></p> -->
 <!--  start event for eventbrite -->
-<div class="container">
+<!-- <img class="img-thumbnail" <%= image_tag key['original']['url'] if key['original'] %> -->
+
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm-5">
       <img class="img-thumbnail" <%= image_tag key['logo']['url'] if key['logo'] %>
-      <!-- <img class="img-thumbnail" <%= image_tag key['original']['url'] if key['original'] %> -->
     </div>
     <div class="col-sm-6">
       <div class="dock_event">
@@ -27,10 +28,10 @@
 
         <% unless key["description"]["text"].nil? %>
         <p><%= key["description"]["text"].truncate(400)%></p>
-        <% end %>
+        <% end %> -->
 
         <!--Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
+        <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
           More Info
         </button>
       </div>
@@ -42,14 +43,13 @@
 </div>
 
     <%= render partial: 'event_info_modal', locals: { index: index, key: key }%>
-<% end %>
+<% end %> -->
 
 
 <!--  TicketMaster API Filter and some CSS with BS -->
-
-<% @ticketm_events["_embedded"]["events"].each_with_index do |tk, index|%>
+<% @ticketm_events["_embedded"]["events"].each_with_index do |tk, indexx|%>
 <!--  File for testin API, full info-->
-<% tk  %>
+ <%# tk  %>
 <!--  start event for ticketmaster -->
 <div class="container">
 <div class="row">
@@ -61,8 +61,8 @@
 
       <strong><p><%= tk ["name"]%></p></strong>
 
-      <strong><p>On Sale</strong><br>
-        Start Date: <%= tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
+      <strong>On Sale</strong><br>
+        <p>Start Date: <%= tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
         <br>
         End Date:  <%= tk["sales"]["public"]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p>
 
@@ -71,6 +71,10 @@
           $<%= tk["priceRanges"][0]["max"]  %>
           <%= tk["priceRanges"][0]["currency"]  %>.
         </div>
+        <!--Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mytkModal_<%= indexx %>">
+          More Info
+        </button>
       </div>
     </div>
   </div>
@@ -78,20 +82,5 @@
       <hr style="border-bottom:1px solid red;">
     </span>
 </div>
-
-
-<%#= tk["description"] %>
-<!-- <p>On PRE-Sale:<br>
-Start Date:<%#= tk["sales"]["presales"] %> -->
-<!-- <br>
-End Date:<%#= tk["sales"]"public"][]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p> -->
-
+<%= render partial: 'event_info_ticket', locals: { index:indexx, tk:tk } %>
 <% end %>
-
-
-
-<!-- ["description"]["html"].html_safe -->
-<!-- ["url"].html_safe, target: '_blank' -->
-<!-- ebe["description"]["text"].truncate(400) -->
-<!--  -->
-<!-- my_hash['item']['current']['price'] -->
