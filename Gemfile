@@ -29,8 +29,8 @@ gem 'hirb'
 
 gem 'eventbrite_api'
 gem 'rails_12factor', group: :production
-gem 'meetup_client'
-gem 'google-api-client', '~> 0.11', require: 'google/apis/calendar_v3'
+# gem 'meetup_client'
+gem 'google-api-client'
 
 # for user avatar
 gem "paperclip", "~> 5.0.0"
