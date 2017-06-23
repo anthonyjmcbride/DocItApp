@@ -1,4 +1,4 @@
-<div class="modal fade" id="mytkModal_<%= indexx %>" tabindex="-1" role="dialog">
+<div class="modal fade" id="mytkModal_<%= index %>" tabindex="-1" role="dialog">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -6,7 +6,11 @@
         <h4 class="modal-title"><strong><p><%= tk ["name"]%></p></strong></h4>
       </div>
       <div class="modal-body">
-        <p><img class="img-thumbnail ticket-img"<%= image_tag tk["images"][1]["url"] if ["images"] %></p>
+        <strong><p>On Sale</strong><br>
+          Start Date: <%= date = tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
+          <br>
+
+
           <%= render partial: 'event_ticket_form', locals: { tk: tk }%>
       </div>
     </div><!-- /.modal-content -->

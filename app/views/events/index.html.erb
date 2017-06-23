@@ -1,13 +1,55 @@
-<%= form_tag(search_path, method: "get") do %><br>
-  <p>Search for Events:</p>
-  <%= text_field_tag([:q]) %>
-  <%= text_field_tag(:city, nil, :required => true) %><span> *City Required.</span><br>
-  <br>
-  <div><%= submit_tag("Search") %></div>
+<!-- # <%= form_tag(search_path, method: "get") do %><br>
+#   <p>Search for Events:</p>
+#   <%= text_field_tag([:q]) %>
+#   <%= text_field_tag(:city, nil, :required => true) %><span> *City Required.</span><br>
+#   <br>
+#   <div><%= submit_tag("Search") %></div>
+#
+# <% end %> -->
 
-<% end %>
 
-<h1>Events</h1>
-<div class="events-list">
-  <%= render 'list' %>
-</div>
+<!-- Half Page Image Background Carousel Header -->
+    <!-- <header id="myCarousel" class="carousel slide">
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol> -->
+
+        <!-- Wrapper for Slides -->
+        <!-- <div class="carousel-inner">
+            <img class="item active" src="../assets/intro-bg.jpg" alt="Los Angeles"></div>
+
+                <div class="carousel-caption">
+                    <h2>Caption 1</h2>
+                </div>
+
+      <img class="item" src="../assets/intro-bg.jpg" alt="Los Angeles">
+      <div class="carousel-caption">
+                    <h2>Caption 2</h2>
+                </div> -->
+
+
+            <!-- <div class="item">
+              <img src="../assets/intro-bg.jpg" alt="Los Angeles">
+            </div>
+                <div class="carousel-caption">
+                    <h2>Caption 3</h2>
+                </div> -->
+
+
+        <!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+
+    </header>
+
+
+    <h1>Events</h1>
+    <div class="events-list">
+      <%= render 'list' %>
+    </div>

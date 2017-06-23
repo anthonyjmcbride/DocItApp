@@ -1,11 +1,11 @@
 <!--  Eventbrite API Filter and some CSS with BS -->
-<%# @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
+<% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 <!--  File for testin API, full info-->
-<!-- <p><% key %><% index %></p> -->
+<p><% key %><% index %></p>
 <!--  start event for eventbrite -->
 <!-- <img class="img-thumbnail" <%= image_tag key['original']['url'] if key['original'] %> -->
 
-<!-- <div class="container">
+<div class="container">
   <div class="row">
     <div class="col-sm-5">
       <img class="img-thumbnail" <%= image_tag key['logo']['url'] if key['logo'] %>
@@ -28,10 +28,10 @@
 
         <% unless key["description"]["text"].nil? %>
         <p><%= key["description"]["text"].truncate(400)%></p>
-        <% end %> -->
+        <% end %>
 
         <!--Button trigger modal -->
-        <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
           More Info
         </button>
       </div>
@@ -43,17 +43,18 @@
 </div>
 
     <%= render partial: 'event_info_modal', locals: { index: index, key: key }%>
-<% end %> -->
+
+<% end %>
 
 
 <!--  TicketMaster API Filter and some CSS with BS -->
-<% @ticketm_events["_embedded"]["events"].each_with_index do |tk, indexx|%>
+<% @ticketm_events["_embedded"]["events"].each_with_index do |tk, index|%>
 <!--  File for testin API, full info-->
  <%# tk  %>
 <!--  start event for ticketmaster -->
 <div class="container">
 <div class="row">
-  <div class="col-sm-6">
+  <div class="col-sm-5">
     <img class="img-thumbnail ticket-img"<%= image_tag tk["images"][1]["url"] if ["images"] %>
   </div>
   <div class="col-sm-6">
@@ -71,8 +72,9 @@
           $<%= tk["priceRanges"][0]["max"]  %>
           <%= tk["priceRanges"][0]["currency"]  %>.
         </div>
+      
         <!--Button trigger modal -->
-        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mytkModal_<%= indexx %>">
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mytkModal_<%= index %>">
           More Info
         </button>
       </div>
@@ -82,5 +84,5 @@
       <hr style="border-bottom:1px solid red;">
     </span>
 </div>
-<%= render partial: 'event_info_ticket', locals: { index:indexx, tk:tk } %>
+<%= render partial: 'event_info_ticket', locals: { index:index, tk:tk } %>
 <% end %>

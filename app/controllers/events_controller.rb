@@ -7,8 +7,10 @@ class EventsController < ApplicationController
   end
 
   def index
+  
     @event_brite_events = Event.get_info(params)
     @ticketm_events = Event.get_ticket_info(params)
+
   end
 
   def show
@@ -22,7 +24,7 @@ class EventsController < ApplicationController
 
 
  def create
-    @event = params
+    # @event = params
     @current_user = User.find(1)
     event = @current_user.events.create(source: params[:event_source],source_id: params[:event_source_id],description: params[:event_description],photo: params[:event_photo],price: params[:event_price],date: params[:event_date])
     redirect_to dashboard_events_path()
