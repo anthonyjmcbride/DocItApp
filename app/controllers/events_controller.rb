@@ -8,6 +8,7 @@ class EventsController < ApplicationController
 
   def index
     @event_brite_events = Event.get_info(params)
+    @meet_up_events = Event.get_meetup_info(params)
   end
 
   def show
@@ -17,6 +18,21 @@ class EventsController < ApplicationController
     render json: params
     # id = params[:id]
     # @event = Event.find(1)
+  end
+
+
+  def sync_to_calendar
+    # eventos_id = params[:id]
+    # byebug
+    # Event.where(source_id: params[:event_source_id])
+  end
+
+  def google_calendar_call
+  end
+
+  def parse_event_info(response)
+    # get info
+    # return Hash or Array
   end
 
   def meetup
