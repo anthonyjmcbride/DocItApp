@@ -30,4 +30,8 @@
 <span>
   <hr style="border-bottom:1px solid red;">
 </span>
+
+<div class="actions">
+  <%= link_to "Sync To Calendar", "https://calendar.google.com/calendar/render?action=TEMPLATE&text=#{d.source}&#{d.date}&details=#{d.description}",	{:target=>"_blank"} %>
+</div>
 <% end%>

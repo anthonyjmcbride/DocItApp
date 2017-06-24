@@ -19,13 +19,14 @@
   <% unless key["description"]["text"].nil? %>
     <% description = key["description"]["text"].truncate(400) %>
   <% else %>
-    <% description = nil %> 
+    <% description = nil %>
   <% end %>
 
     <%= hidden_field_tag(:event_source_id, key["id"]) %>
     <%= hidden_field_tag(:event_source, title) %>
     <%= hidden_field_tag(:event_date, date) %>
     <%= hidden_field_tag(:event_photo, image) %>
+    <%= hidden_field_tag(:event_title, title) %>
     <%= hidden_field_tag(:event_description, description) %>
     <% if key ["is_free"] == false %>
     <%= hidden_field_tag(:event_price, "Paid Event") %>
@@ -35,10 +36,12 @@
 
 
      <div class="actions">
-      <%= submit_tag "Dock It" %>
+       <%= submit_tag "Dock It" %>
     </div>
 
     <div class="actions">
-      <%= link_to "Sync To Calendar", "https://calendar.google.com/calendar/render?action=TEMPLATE&text=#{title}&#{date}&#{description},+link+here:+http://www.example.com&location=549+NW+28+street+10022&sf=true&output=xml",	{:target=>"_blank"} %>
+      <%= link_to "Sync To Calendar", "https://calendar.google.com/calendar/render?action=TEMPLATE&text=#{title}&#{date}&details=#{description}",	{:target=>"_blank"} %>
     </div>
 <% end %>
+<!-- &location=#{address} -->
+<!-- "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Your+Event+Name&dates=20140127T224000Z/20140320T221500Z&details=For+details,+link+here:+http://www.example.com&location=Waldorf+Astoria,+301+Park+Ave+,+New+York,+NY+10022&sf=true&output=xml#eventpage_6" -->

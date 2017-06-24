@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get '/search', to: 'events#index', as: 'search'
   get '/events/sync_to_calendar' => 'events#sync_to_calendar'
 
+  get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
 
   resources :events do
     collection do
