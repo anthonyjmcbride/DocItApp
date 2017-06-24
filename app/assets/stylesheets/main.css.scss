@@ -2,9 +2,81 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+//
 
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575px) { nav > .container-fluid {
+    width: 100%;
+    margin-left: -2rem;
+
+    .nav_search_events input[type=text]:focus  {
+        width: 68%;
+        .main_logo {
+    display: inline-table;
+    margin: -10px 20px -50px 10px;
+    .navbar-brand {
+    display: initial;
+}
+    }
+
+    }
+}
+}
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) and (max-width: 767px) { nav > .container-fluid {
+    width: 100%; }
+}
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) and (max-width: 991px) { nav > .container-fluid {
+    width: 100%; }
+}
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) and (max-width: 1199px) { nav > .container-fluid {
+    width: 100%;
+     }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) { nav > .container {
+    width: 100%; }
+}
+
+.container{
+
+  margin-top: 30%;
+
+}
+.navbar {
+
+  flex-direction: none;
+}
+
+
+.navbar-toggler-right {
+    top: 1rem;
+}
+.navbar-toggler {
+    z-index: 1;
+}
+.navbar-brand {
+
+margin: auto;
+
+}
+
+
+.navbar-nav{
+
+color: red;
+display: inline;
+
+
+}
 // logo
-
+.main_logo {
+  display: inline-table;
+      margin: -15px 10px -25px 10px;
+}
 #logo {
     font-family: 'Josefin Sans', sans-serif;
     margin-right: 3px;
@@ -16,52 +88,64 @@
     font-size: 3em;
 }
 // search bar
+
+
+
 .nav_search_events {
+ color: red;
+    margin: 11px 0px 8px 18px;
+}
 
-
+#city_search {
+ color: blue;
+     margin: 8px -10px 6px 16px;
 }
 
 #submit_btn_header {
 display: none;
-
 }
 
 input[type=text] {
-    width: 130px;
+    width: 140px;
     box-sizing: border-box;
     border: 2px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     font-size: 16px;
     background-color: white;
     background-position: 10px 10px;
     background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
+    padding: 12px 20px 12px 20px;
     -webkit-transition: width 0.4s ease-in-out;
     transition: width 0.4s ease-in-out;
 }
-
-input[type=text]:focus {
+// just the right search bar is animated
+.nav_search_events input[type=text]:focus  {
     width: 100%;
 }
 
-
 .btn-del {
   text-decoration: none;
-
 }
 
 .ticket-img {
-
   width: 410px;
   height: 100%;
-
 }
 
 .dock_event {
-
   margin-top: 10px;
   margin-bottom: 45px;
 }
+
+.form-inline {
+
+    margin: 18px;
+
+}
+
+
+
+
 
 // Slider index page
 /* You can change the height of the carousel by changing the height in the class below. It is set to 50% by default, but can be any height! */
@@ -86,7 +170,7 @@ input[type=text]:focus {
     -moz-background-size: cover;
     background-size: cover;
     -o-background-size: cover;
-} 
+}
 
 /*!
  * Start Bootstrap - Landing Page (http://startbootstrap.com/template-overviews/landing-page)
