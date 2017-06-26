@@ -9,6 +9,3 @@ Rails.application.config.middleware.use OmniAuth::Builder do
       access_type: "offline"
     }
 end
-
-
-# :google_oauth2, ENV.fetch('GOOGLE_ID'), ENV.fetch('GOOGLE_SECRET')
