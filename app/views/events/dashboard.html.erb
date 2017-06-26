@@ -7,7 +7,7 @@
   <div class="row">
     <div class="col-sm-6">
       <% d.source_id%><br>
-      <img class="img-thumbnail" src="<%=d.photo%>">
+      <img class="img-thumbnail ticket-img" src="<%=d.photo%>">
       <!-- 410x210 -->
     </div>
     <div class="col-sm-6">
@@ -23,7 +23,7 @@
       <p>
       <%= d.description %>
     </p>
-    <button type="button" id="" class="btn btn-primary btn-lg"><%= link_to 'DELETE', event_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    <button type="button" id="delete_btn" class="btn btn-primary btn-lg"><%= link_to 'DELETE', event_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %></button>
 
   </div>
 </div>
