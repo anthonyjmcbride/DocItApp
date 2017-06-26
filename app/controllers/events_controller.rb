@@ -12,15 +12,13 @@ class EventsController < ApplicationController
   end
 
   def show
-    #@event = params
+    # @event = params
     @current_user = User.find(1)
     @current_user.events.create(source: params[:event_source],source_id: params[:event_source_id],description: params[:event_description],photo: params[:event_photo],price: params[:event_price],date: params[:event_date])
     render json: params
-
   end
 
-
-
+  
  def create
     @current_user = User.find(1)
     event = @current_user.events.create(source: params[:event_source],source_id: params[:event_source_id],description: params[:event_description],photo: params[:event_photo],price: params[:event_price],date: params[:event_date])
@@ -46,7 +44,6 @@ class EventsController < ApplicationController
     end
   end
 
-  private
 
 end
 
