@@ -1,39 +1,105 @@
-<%= @meet_up_events.parsed_response %>
+<!--  Eventbrite API Filter and some CSS with BS -->
+<%@event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
+<!--  File for testin API, full info-->
+<p><% key %><% index %></p>
+<!--  start event for eventbrite -->
+<!-- <img class="img-thumbnail" <%= image_tag key['original']['url'] if key['original'] %> -->
 
-<% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+      <% x = image_tag key['logo']['url'] if key['logo'] %>
+      <% if x == nil %>
+      <img class="img-thumbnail" <%= image_tag('events-pholder.jpg') %>
+      <% else %>
+      <img class="img-thumbnail" <%= image_tag key['logo']['url'] if key['logo'] %>
+      <% end %>
+    </div>
+    <div class="col-sm-6">
+      <div class="dock_event">
 
-    <p><% key %><% index %></p>
+        <strong><p><%= key ["name"]["text"]%></p></strong>
+        <p><%= key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")  %></p>
+<p><%#= key ["start"]["local"].in_time_zone.strftime("%Y%m%dT%H%M%SZ")  %></p>
+          <strong>
 
-    <p><%= image_tag key['logo']['url'] if key['logo'] %></p>
-    <p><%= image_tag key['original']['url'] if key['original'] %></p>
+            <% if key ["is_free"] == false %>
+            <%= "Paid Event" %>
+            <% else %>
+            <%= "Free Event" %>
+            <% end %>
 
-    <strong><p><%= key ["name"]["text"]%></p></strong>
-    <p><%= key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")   %></p>
-    <p>
-    <strong>
-    <% if key ["is_free"] == false %>
-    <%= "Paid Event" %>
-    <% else %>
-    <%= "Free Event" %>
-    <% end %>
-    </strong>
-    </p>
-    <% unless key["description"]["text"].nil? %>
-      <p><%= key["description"]["text"].truncate(400)%></p>
-    <% end %>
+          </strong>
 
+        <% unless key["description"]["text"].nil? %>
+        <p><%= key["description"]["text"].truncate(400)%></p>
+        <% end %>
 
-    <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
-      More Info
-    </button>
+        <!--Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal_<%= index %>">
+          More Info
+        </button>
+      </div>
+    </div>
+  </div>
+  <span>
+    <hr style="border-bottom:1px solid red;">
+  </span>
+</div>
 
     <%= render partial: 'event_info_modal', locals: { index: index, key: key }%>
-   <hr style="border-bottom:1px solid red;">
+
 <% end %>
 
-<!-- ["description"]["html"].html_safe -->
-<!-- ["url"].html_safe, target: '_blank' -->
-<!-- ebe["description"]["text"].truncate(400) -->
-<!--  -->
-<!-- my_hash['item']['current']['price'] -->
+
+<!--  TicketMaster API Filter and some CSS with BS -->
+
+<% @ticketm_events.parsed_response["_embedded"]["events"].each do |tk, index|%>
+<!--  File for testin API, full info-->
+ <% tk  %>
+<!--  start event for ticketmaster -->
+<div class="container">
+<div class="row">
+  <div class="col-sm-5">
+    <img class="img-thumbnail ticket-img"<%= image_tag tk["images"][1]["url"] if ["images"] %>
+  </div>
+  <div class="col-sm-6">
+    <div class="dock_event">
+
+      <strong><p><%= tk ["name"]%></p></strong>
+
+      <strong>On Sale</strong><br>
+
+        <p>Start Date: <%= tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
+        <br>
+        End Date:  <%= tk["sales"]["public"]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p>
+
+        <div class="ticket_price">
+
+          <%unless tk["priceRanges"] == nil %>
+          <% @min = tk["priceRanges"][0]["min"] %>
+          <% @max = tk["priceRanges"][0]["max"]  %>
+              <% if @min == @max %>
+              <%= "Ticket Price: Just #{@min}0" %>
+              <% else %>
+              <%= "Ticket Price: From #{@min}0 to #{@max}0" %>
+              <% end %>
+          <%= tk["priceRanges"][0]["currency"]%>.
+          <% end %>
+
+
+        </div>
+
+        <!--Button trigger modal -->
+        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mytkModal_<%= index %>">
+          More Info
+        </button>
+      </div>
+    </div>
+  </div>
+    </span>
+      <hr style="border-bottom:1px solid red;">
+    </span>
+</div>
+<%#= render partial: 'event_info_ticket', locals: { index:index, tk:tk } %>
+<% end %>

@@ -8,7 +8,7 @@ class EventsController < ApplicationController
 
   def index
     @event_brite_events = Event.get_info(params)
-    @meet_up_events = Event.get_meetup_info(params)
+    @ticketm_events     = Event.get_ticket_info(params)
   end
 
   def show
@@ -16,26 +16,10 @@ class EventsController < ApplicationController
     @current_user = User.find(1)
     @current_user.events.create(source: params[:event_source],source_id: params[:event_source_id],description: params[:event_description],photo: params[:event_photo],price: params[:event_price],date: params[:event_date])
     render json: params
-    # id = params[:id]
-    # @event = Event.find(1)
   end
 
-  def sync_to_calendar
-    # eventos_id = params[:id]
-    # byebug
-    # Event.where(source_id: params[:event_source_id])
-  end
-
-  def google_calendar_call
-  end
-
-def parse_event_info(response)
-  # get info
-  #return hash or Array
-end
-
+  
  def create
-    @event = params
     @current_user = User.find(1)
     event = @current_user.events.create(source: params[:event_source],source_id: params[:event_source_id],description: params[:event_description],photo: params[:event_photo],price: params[:event_price],date: params[:event_date])
     redirect_to dashboard_events_path()
@@ -43,12 +27,11 @@ end
 
   def search
     @event_brite_events = Event.get_info(params)
+    @ticketm_events     = Event.get_ticket_info(params)
     respond_to do |format|
       format.json { render partial: 'list' }
     end
-    # @meetup_events = meetup_api.open_events(params)
-    #  respond_to do |format|
-    #    format.json { render partial: 'list' }
+
   end
 
   def destroy

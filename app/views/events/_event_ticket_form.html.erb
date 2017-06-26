@@ -1,0 +1,40 @@
+<%= form_tag( { :controller => "events", :action => "create" }, method: "post", local: true) do |form| %>
+
+<!--  Ticket Master-->
+<!-- pop-up screen event info to send to dock -->
+<img class="img-thumbnail ticket-img"<%= image_tag tk["images"][1]["url"] if ["images"] %>
+<strong><p><%=  tk ["name"]%></p></strong>
+<strong><p>On Sale</strong><br>
+  <div class="">
+      Start Date: <%= tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
+</div>
+<!-- send to dashboard -->
+<% image =  image_tag tk["images"][1]["url"] if ["images"] %>
+<% title =  tk ["name"]%>
+<% date = tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
+<!-- END send info to dashboard -->
+
+    <!-- End Date:  <%#= tk["sales"]["public"]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p> -->
+
+    <!-- <div class="ticket_price">Ticket Price: From
+      $<%= tk["priceRanges"][0]["min"]  %> to
+      $<%= tk["priceRanges"][0]["max"]  %>
+      <%= tk["priceRanges"][0]["currency"]  %>.
+    </div> -->
+
+ <%= hidden_field_tag(:event_source_id, tk["id"]) %>
+ <%= hidden_field_tag(:event_source, title) %>
+ <%= hidden_field_tag(:event_date, date) %>
+ <%= hidden_field_tag(:event_photo, image) %>
+ <%#= hidden_field_tag(:event_description, description) %>
+
+   <div class="actions">
+      <%= submit_tag "Dock It" %>
+    </div>
+
+    <div class="sync-to-calendar">
+      <%= form_tag new_event_url do %>
+      <%= submit_tag "Sync To Calendar" %>
+      <% end %>
+    </div>
+   <% end %>
