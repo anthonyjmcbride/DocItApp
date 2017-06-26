@@ -1,19 +1,19 @@
 <%= form_tag( { :controller => "events", :action => "create" }, method: "post", local: true) do |form| %>
 
-<!-- <p><%# key['logo'] %></p> -->
-<p><%= image_tag key['logo']['url'] if key['logo'] %></p>
-<p><%= image_tag key['original']['url'] if key['original'] %></p>
+<p><% key['logo'] %></p>
+<%= image_tag key['logo']['url'] if key['logo'] %></p>
+<p><% key ["description"]["text"].truncate(400)%></p>
 
-<!-- <p><%#= key ["description"]["text"].truncate(400)%></p> -->
+
 <% image = key['logo']['url'] if key['logo'] %>
 <% title = key ["name"]["text"]%>
 <% date = key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
 
-<%# if key ["is_free"] == false %>
-<%# "Paid Event" %>
-<%# else %>
-<%# "Free Event" %>
-<%# end %>
+<% if key ["is_free"] == false %>
+<% "Paid Event" %>
+<% else %>
+<% "Free Event" %>
+<% end %>
   <% unless key["description"]["text"].nil? %>
   <% description = key["description"]["text"].truncate(400) %>
   <% else %>

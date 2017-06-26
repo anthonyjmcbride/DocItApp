@@ -54,14 +54,14 @@
 
 <!--  TicketMaster API Filter and some CSS with BS -->
 
-<% @ticketm_events.parsed_response["_embedded"]["events"].each do |tk, index|%>
+<% @ticketm_events.parsed_response["_embedded"]["events"].each_with_index do |tk, index|%>
 <!--  File for testin API, full info-->
  <% tk  %>
 <!--  start event for ticketmaster -->
 <div class="container">
 <div class="row">
   <div class="col-sm-5">
-    <img class="img-thumbnail ticket-img"<%= image_tag tk["images"][1]["url"] if ["images"] %>
+    <img class="img-thumbnail ticket-img"<%= image_tag tk["images"][1]["url"] if tk["images"] %>
   </div>
   <div class="col-sm-6">
     <div class="dock_event">
@@ -86,8 +86,6 @@
               <% end %>
           <%= tk["priceRanges"][0]["currency"]%>.
           <% end %>
-
-
         </div>
 
         <!--Button trigger modal -->
@@ -101,5 +99,5 @@
       <hr style="border-bottom:1px solid red;">
     </span>
 </div>
-<%#= render partial: 'event_info_ticket', locals: { index:index, tk:tk } %>
+<%= render partial: 'event_info_ticket', locals: { index:index, tk:tk } %>
 <% end %>
