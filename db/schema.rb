@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170621083819) do
+ActiveRecord::Schema.define(version: 20170626211546) do
 
   create_table "events", force: :cascade do |t|
     t.string "source"
@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20170621083819) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string "city"
   end
 
 end
