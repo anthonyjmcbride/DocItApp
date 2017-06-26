@@ -1,3 +1,4 @@
+
 <!--  Eventbrite API Filter and some CSS with BS -->
 <%@event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 <!--  File for testin API, full info-->
@@ -46,6 +47,7 @@
     <hr style="border-bottom:1px solid red;">
   </span>
 </div>
+
 
     <%= render partial: 'event_info_modal', locals: { index: index, key: key }%>
 

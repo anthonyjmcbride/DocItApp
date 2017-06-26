@@ -20,12 +20,15 @@
   <% description = nil %>
   <% end %>
 
+
+
   <%= hidden_field_tag(:event_source_id, key["id"]) %>
   <%= hidden_field_tag(:event_source, title) %>
   <%= hidden_field_tag(:event_date, date) %>
   <%= hidden_field_tag(:event_photo, image) %>
   <%= hidden_field_tag(:event_description, description) %>
   <% if key ["is_free"] == false %>
+
 
     <%= hidden_field_tag(:event_price, "Paid Event") %>
     <% else %>
@@ -37,7 +40,11 @@
       <%= submit_tag "Dock It" %>
     </div>
 
+<<<<<<< HEAD
+    <div class="sync-to-calendar">
+=======
     <div class="actions">
+>>>>>>> 95d96aa1551f21af64044a496902d208c41b53a3
       <%= link_to "Sync To Calendar", "https://calendar.google.com/calendar/render?action=TEMPLATE&text=#{title}&#{date}&#{description},+link+here:+http://www.example.com&location=549+NW+28+street+10022&sf=true&output=xml",	{:target=>"_blank"} %>
     </div>
 

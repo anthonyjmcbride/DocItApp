@@ -24,13 +24,18 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
+gem 'bcrypt', '~> 3.1.7'
+gem 'hirb'
 
 gem 'eventbrite_api'
 gem 'rails_12factor', group: :production
 # gem 'meetup_client'
 gem 'google-api-client'
+
+
+# for user avatar
+gem "paperclip", "~> 5.0.0"
+gem 'meetup_client'
 
 gem 'geocoder'
 # gem 'rb-readline'
@@ -40,7 +45,6 @@ gem 'geocoder'
 
 gem 'httparty', '~> 0.15.5'
 gem 'pg', '~> 0.18'
-
 gem 'omniauth-google-oauth2'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'sprockets', '~> 3.0'
@@ -62,7 +66,6 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3'
-  gem 'better_errors'
 end
 
 

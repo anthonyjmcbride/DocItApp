@@ -18,7 +18,6 @@ class GoogleCalendarWrapper
   end
 end
 
-
 # require 'google/apis/calendar_v3'
 # require 'google/api_client/client_secrets.rb'
 secrets = Google::APIClient::ClientSecrets.new({"web" => {"access_token" => current_user.access_token, "refresh_token" => "#{current_user.refresh_token}", "client_id" => "945481249376-iol50o9lmh8go43pna2s34bplm67s4ke.apps.googleusercontent.com", "client_secret" => "NraFdsjzAHKiwC9R2iyaCrBR"}})

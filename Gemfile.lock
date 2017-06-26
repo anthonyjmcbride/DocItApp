@@ -53,10 +53,7 @@ GEM
     arel (8.0.0)
     autoprefixer-rails (7.1.1.2)
       execjs
-    better_errors (2.1.1)
-      coderay (>= 1.0.0)
-      erubis (>= 2.6.6)
-      rack (>= 0.9.0)
+    bcrypt (3.1.11)
     bindex (0.5.0)
     builder (3.2.3)
     byebug (9.0.6)
@@ -69,7 +66,9 @@ GEM
       xpath (~> 2.0)
     childprocess (0.7.0)
       ffi (~> 1.0, >= 1.0.11)
-    coderay (1.1.1)
+    climate_control (0.2.0)
+    cocaine (0.5.8)
+      climate_control (>= 0.0.3, < 1.0)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -85,7 +84,6 @@ GEM
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
     erubi (1.6.0)
-    erubis (2.7.0)
     eventbrite_api (0.0.4)
       httparty
       json
@@ -112,6 +110,7 @@ GEM
       os (~> 0.9)
       signet (~> 0.7)
     hashie (3.5.5)
+    hirb (0.7.3)
     httparty (0.15.5)
       multi_xml (>= 0.5.2)
     httpclient (2.8.3)
@@ -137,11 +136,13 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.6.6)
       mime-types (>= 1.16, < 4)
+    meetup_client (1.0.0)
     memoist (0.16.0)
     method_source (0.8.2)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
+    mimemagic (0.3.2)
     mini_portile2 (2.2.0)
     minitest (5.10.2)
     multi_json (1.12.1)
@@ -168,6 +169,12 @@ GEM
       oauth2 (~> 1.0)
       omniauth (~> 1.2)
     os (0.9.6)
+    paperclip (5.0.0)
+      activemodel (>= 4.2.0)
+      activesupport (>= 4.2.0)
+      cocaine (~> 0.5.5)
+      mime-types
+      mimemagic (~> 0.3.0)
     pg (0.21.0)
     popper_js (1.9.9)
     public_suffix (2.0.5)
@@ -269,7 +276,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  better_errors
+  bcrypt (~> 3.1.7)
   bootstrap!
   byebug
   capybara (~> 2.13)
@@ -278,11 +285,14 @@ DEPENDENCIES
   eventbrite_api
   geocoder
   google-api-client
+  hirb
   httparty (~> 0.15.5)
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  meetup_client
   omniauth-google-oauth2
+  paperclip (~> 5.0.0)
   pg (~> 0.18)
   puma (~> 3.7)
   rails (~> 5.1.1)
