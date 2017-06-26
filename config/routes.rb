@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  resources :users
   root 'events#index'
   # get '/events/:id' => 'events#show'
   post '/events/show' => 'events#show'

@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 20170621083819) do
     t.float "latitud"
     t.float "longitude"
     t.string "password_digest"
+    t.string "refresh_token"
+    t.string "access_token"
     t.string "avatar_file_name"
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-    t.string "refresh_token"
-    t.string "access_token"
   end
 
 end

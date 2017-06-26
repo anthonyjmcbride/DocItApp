@@ -18,6 +18,10 @@ class User < ApplicationRecord
     end
   end
 
+  def username
+    self.email.split("@")[0]
+  end
+
   has_many :events
   has_secure_password
 
