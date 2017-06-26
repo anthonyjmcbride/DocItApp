@@ -23,7 +23,7 @@
       <p>
       <%= d.description %>
     </p>
-    <button type="button" id="" class="btn btn-primary btn-lg"><%= link_to 'DELETE', event_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %></button>
+    <button type="button" id="delete_btn" class="btn btn-primary btn-lg"><%= link_to 'DELETE', event_path(d.id), method: :delete, data: { confirm: 'Are you sure?' } %></button>
 
   </div>
 </div>
