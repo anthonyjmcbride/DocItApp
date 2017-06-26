@@ -39,8 +39,6 @@
     </div>
 
     <div class="sync-to-calendar">
-      <%= form_tag new_event_url do %>
-      <%= submit_tag "Sync To Calendar" %>
-      <% end %>
+      <%= link_to "Sync To Calendar", "https://calendar.google.com/calendar/render?action=TEMPLATE&text=#{title}&#{date}&#{description},+link+here:+http://www.example.com&location=549+NW+28+street+10022&sf=true&output=xml",	{:target=>"_blank"} %>
     </div>
    <% end %>
