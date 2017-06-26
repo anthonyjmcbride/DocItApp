@@ -10,7 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 20170621083819) do
+
 
   create_table "events", force: :cascade do |t|
     t.string "source"
@@ -47,10 +49,10 @@ ActiveRecord::Schema.define(version: 20170621083819) do
     t.string "calendar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "provider"
-    t.string "uid"
     t.float "latitud"
     t.float "longitude"
+    t.string "provider"
+    t.string "uid"
     t.string "password_digest"
     t.string "refresh_token"
     t.string "access_token"
@@ -58,6 +60,10 @@ ActiveRecord::Schema.define(version: 20170621083819) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string "refresh_token"
+    t.string "access_token"
+    t.string "city"
+
   end
 
 end
