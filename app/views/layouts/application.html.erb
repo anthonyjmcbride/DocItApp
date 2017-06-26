@@ -55,8 +55,8 @@
 
 
 </span>
-    <span id="city_search" class"d-inline"><% @current_user = User.find(1) %>
-    <%=  text_field_tag([:city], "#{@current_user.zipcode.inspect}") %>
+    <span id="city_search" class"d-inline"><% @current_user = User.find(5) %>
+    <%=  text_field_tag([:city], "#{@current_user.city}") %>
 </span>
     <span class="nav_search_events"><%= text_field_tag([:q] ) %>
 

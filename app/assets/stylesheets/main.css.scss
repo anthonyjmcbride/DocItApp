@@ -10,7 +10,7 @@
     margin-left: -2rem;
 
     .nav_search_events input[type=text]:focus  {
-        width: 68%;
+        width: 140px;
         .main_logo {
     display: inline-table;
     margin: -10px 20px -50px 10px;
@@ -41,11 +41,6 @@
     width: 100%; }
 }
 
-.container{
-
-  margin-top: 30%;
-
-}
 .navbar {
 
   flex-direction: none;
@@ -129,7 +124,7 @@ input[type=text] {
 
 .ticket-img {
   width: 410px;
-  height: 100%;
+  height: auto;
 }
 
 .dock_event {
@@ -192,7 +187,7 @@ h4,
 h5,
 h6 {
     font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-weight: 700;
+
 }
 
 .intro-header {

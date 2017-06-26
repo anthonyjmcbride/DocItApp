@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170620233051) do
+ActiveRecord::Schema.define(version: 20170624195409) do
 
   create_table "events", force: :cascade do |t|
     t.string "source"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20170620233051) do
     t.string "uid"
     t.string "refresh_token"
     t.string "access_token"
+    t.string "city"
   end
 
 end

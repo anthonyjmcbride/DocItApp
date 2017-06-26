@@ -1,5 +1,5 @@
 <!--  Eventbrite API Filter and some CSS with BS -->
-<% @event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
+<%@event_brite_events.parsed_response["events"].each_with_index do |key, index|%>
 <!--  File for testin API, full info-->
 <p><% key %><% index %></p>
 <!--  start event for eventbrite -->
@@ -8,14 +8,19 @@
 <div class="container">
   <div class="row">
     <div class="col-sm-5">
+      <% x = image_tag key['logo']['url'] if key['logo'] %>
+      <% if x == nil %>
+      <img class="img-thumbnail" <%= image_tag('events-pholder.jpg') %>
+      <% else %>
       <img class="img-thumbnail" <%= image_tag key['logo']['url'] if key['logo'] %>
+      <% end %>
     </div>
     <div class="col-sm-6">
       <div class="dock_event">
 
         <strong><p><%= key ["name"]["text"]%></p></strong>
         <p><%= key ["start"]["local"].in_time_zone.strftime("%a, %B %m at %I:%M%p")  %></p>
-
+<p><%#= key ["start"]["local"].in_time_zone.strftime("%Y%m%dT%H%M%SZ")  %></p>
           <strong>
 
             <% if key ["is_free"] == false %>
@@ -48,9 +53,10 @@
 
 
 <!--  TicketMaster API Filter and some CSS with BS -->
-<% @ticketm_events["_embedded"]["events"].each_with_index do |tk, index|%>
+
+<% @ticketm_events.parsed_response["_embedded"]["events"].each do |tk, index|%>
 <!--  File for testin API, full info-->
- <%# tk  %>
+ <% tk  %>
 <!--  start event for ticketmaster -->
 <div class="container">
 <div class="row">
@@ -63,16 +69,27 @@
       <strong><p><%= tk ["name"]%></p></strong>
 
       <strong>On Sale</strong><br>
+
         <p>Start Date: <%= tk["sales"]["public"]["startDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%>
         <br>
         End Date:  <%= tk["sales"]["public"]["endDateTime"].in_time_zone.strftime("%a, %B %m at %I:%M%p")%></p>
 
-        <div class="ticket_price">Ticket Price: From
-          $<%= tk["priceRanges"][0]["min"]  %> to
-          $<%= tk["priceRanges"][0]["max"]  %>
-          <%= tk["priceRanges"][0]["currency"]  %>.
+        <div class="ticket_price">
+
+          <%unless tk["priceRanges"] == nil %>
+          <% @min = tk["priceRanges"][0]["min"] %>
+          <% @max = tk["priceRanges"][0]["max"]  %>
+              <% if @min == @max %>
+              <%= "Ticket Price: Just #{@min}0" %>
+              <% else %>
+              <%= "Ticket Price: From #{@min}0 to #{@max}0" %>
+              <% end %>
+          <%= tk["priceRanges"][0]["currency"]%>.
+          <% end %>
+
+
         </div>
-      
+
         <!--Button trigger modal -->
         <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#mytkModal_<%= index %>">
           More Info
@@ -84,5 +101,5 @@
       <hr style="border-bottom:1px solid red;">
     </span>
 </div>
-<%= render partial: 'event_info_ticket', locals: { index:index, tk:tk } %>
+<%#= render partial: 'event_info_ticket', locals: { index:index, tk:tk } %>
 <% end %>
