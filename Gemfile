@@ -45,6 +45,7 @@ gem 'omniauth-google-oauth2'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'sprockets', '~> 3.0'
 gem 'jquery-rails'
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

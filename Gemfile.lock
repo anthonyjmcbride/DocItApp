@@ -93,6 +93,8 @@ GEM
     faraday (0.12.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
+    font-awesome-sass (4.7.0)
+      sass (>= 3.2)
     geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
@@ -276,6 +278,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   dotenv-rails
   eventbrite_api
+  font-awesome-sass
   geocoder
   google-api-client
   httparty (~> 0.15.5)

@@ -4,7 +4,7 @@
         <ul class="list-inline">
             <li class="list-inline-item">
               <% if current_user %>
-                <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.name %>!</a>
+                <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.first_name %>!</a>
                 <% else %>
                 <a class="nav-link" href="<%= link_to "Sign in", "/auth/google_oauth2" %></a>
               <% end %>

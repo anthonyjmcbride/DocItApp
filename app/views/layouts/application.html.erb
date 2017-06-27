@@ -13,7 +13,6 @@
 
 
     <!-- Custom fonts for this template -->
-
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Old+Standard+TT:400i" rel="stylesheet">
         <!-- Temporary navbar container fix -->
@@ -68,23 +67,27 @@
 
               <div class="collapse navbar-collapse" id="navbarExample">
                 <ul class="navbar-nav ml-auto">
-                  <li class="nav-item">
-                    <% if current_user %>
-                      <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.name %>!</a>
-                      <% else %>
-                      <a class="nav-link" href="<%= link_to "Sign in", "/auth/google_oauth2" %></a>
-                    <% end %>
-                  </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Dock</a>
+                        <a class="nav-link" href="#"><i class="fa fa-arrow-circle-o-down fa-1x" aria-hidden="true"></i> Dockit </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Profile</a>
+                        <a class="nav-link" href="#"><i class="fa fa-cog fa-1x" aria-hidden="true"></i> Profile </a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">About us</a>
+                        <a class="nav-link" href="#"><i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> About us </a>
                     </li>
+                    <li class="nav-item">
+                      <% if current_user %>
+                           <a class="nav-link"><i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>  <%= current_user.first_name %></a>
+                           <%= link_to "Log out", '/logout' %>
+                         <% else %>
+                         <a class="nav-link" ><%= link_to 'Login', '/login', remote: true %> | <%= link_to 'Sign up', '/signup', remote: true %> | <%= link_to "Sign in", "/auth/google_oauth2" %></a>
+                         <% end %>
+                    </li>
+
+
+
                 </ul>
               </div>
           </div>
@@ -118,7 +121,7 @@
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
                     <% if current_user %>
-                      <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.name %>!</a>
+                      <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.first_name %>!</a>
                       <% else %>
                       <a class="nav-link" href="<%= link_to "Sign in", "/auth/google_oauth2" %></a>
                     <% end %>
@@ -155,7 +158,7 @@
         <ul class="nav navbar-nav navbar-right">
           <li class="nav-item">
             <% if current_user %>
-              <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.name %>!</a>
+              <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.first_name %>!</a>
               <% else %>
               <a class="nav-link" href="<%= link_to "Sign in", "/auth/google_oauth2" %></a>
             <% end %>

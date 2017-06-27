@@ -1,5 +1,7 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
 @import "bootstrap";
 @media (max-width: 575px) {
   img.main_logo {
@@ -60,7 +62,7 @@
   form.navbar-brand {
     margin-left: 60px;
     .nav_search_events input[type=text] {
-          width: 300px;
+          width: 250px;
 }
     }
   }
