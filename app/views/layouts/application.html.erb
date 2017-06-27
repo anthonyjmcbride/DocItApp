@@ -13,7 +13,6 @@
 
 
     <!-- Custom fonts for this template -->
-
         <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
         <link href="https://fonts.googleapis.com/css?family=Josefin+Sans|Old+Standard+TT:400i" rel="stylesheet">
         <!-- Temporary navbar container fix -->
@@ -28,57 +27,101 @@
     </div> -->
 
 
-
-
-
-
-    <!-- Navigation -->
-    <nav class="navbar fixed-top navbar-toggleable-md navbar-light bg-faded">
 <!-- Logo -->
-      <div class="main_logo">
-      <a id="logo" class="navbar-brand form-inline" href="#">Dock</a>
-      <a id="logo_1" class="navbar-brand d-inline" href="#">.it</a>
-      </div>
 
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+      <!-- Navigation -->
+      <nav class="navbar  navbar-toggleable-md navbar-light bg-faded">
+          <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarExample" aria-controls="navbarExample" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="container">
+            <div class="row">
+
+            <a class="navbar-brand" href="#">
+
+
+
+              <div class="col-md-6"><img class="main_logo" <%= image_tag ('dock_it_A.png')%>
+
+                    <!-- <%= 'active' if current_page?(root_path) %> -->
+
+                <form class="navbar-brand" >
+
+              <%= form_tag(search_path, method: "get") do %><br>
+            <span class="nav_search_events"><%= text_field_tag([:q] ) %></span>
+                <span id="city_search" class"d-inline">
+                <%=  text_field_tag([:city], "#{params[:city] || current_user.city || 'miami beach'}") %>
+
+                </div>
+                </div>
+                <div id="submit_btn_header"><%=submit_tag("Search") %></div>
+              <% end %>
+            </form>
+
+
+
+
+              </a>
+
+
+              <div class="collapse navbar-collapse" id="navbarExample">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-arrow-circle-o-down fa-2x" aria-hidden="true"></i> Dockit </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-cog fa-1x" aria-hidden="true"></i> Profile </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"><i class="fa fa-thumbs-o-up fa-1x" aria-hidden="true"></i> About us </a>
+                    </li>
+                    <li class="nav-item">
+                      <% if current_user %>
+                           <a class="nav-link"><i class="fa fa-user-circle-o fa-2x" aria-hidden="true"></i>  <%= current_user.first_name %></a>
+                           <%= link_to "Log out", '/logout' %>
+                         <% else %>
+                         <a class="nav-link" ><%= link_to 'Login', '/login', remote: true %> | <%= link_to 'Sign up', '/signup', remote: true %> | <%= link_to "Sign in", "/auth/google_oauth2" %></a>
+                         <% end %>
+                    </li>
+
+
+
+                </ul>
+              </div>
+          </div>
+
+          <!-- container -->
+            </div>
+
+
+      </nav>
+
+
 <!-- Search for Events -->
 
           <!-- <div class="col-sm-7"> -->
 
-          <div class="container-fluid">
+          <!-- <div class="container-fluid"> -->
             <!-- <nav class="navbar navbar-toggleable-md navbar-light bg-faded"> -->
-  <form class="navbar-brand" >
-  <%= form_tag(search_path, method: "get") do %><br>
 
 
 
 
-<span class="nav_search_events"><%= text_field_tag([:q] ) %>
-    <span id="city_search" class"d-inline"><% @current_user = User.find(5) %>
-    <%=  text_field_tag([:city], "#{@current_user.city}") %>
 
 
-
-    <div id="submit_btn_header"><%=submit_tag("Search") %></div>
-
-  <% end %>
-
-</div>
-</form>
-</nav>
 
 <!-- <form>
 <input type="text" name="search" placeholder="Search..">
 </form> -->
 <!--  animated search-->
-<div class="col-sm-8">
+<!-- <div class="col-sm-8">
             <div class="collapse navbar-collapse" >
                 <ul class="navbar-nav ml-auto">
                   <li class="nav-item">
                     <% if current_user %>
-                      <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.name %>!</a>
+                      <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.first_name %>!</a>
                       <% else %>
                       <a class="nav-link" href="<%= link_to "Sign in", "/auth/google_oauth2" %></a>
                     <% end %>
@@ -96,25 +139,61 @@
                 </div>
             </div>
         </div>
-    </nav>
+    </nav> -->
+
+
+    <!-- Navigation -->
+       <!-- <nav class="navbar navbar-default navbar-fixed-top topnav" role="navigation">
+           <div class="container topnav">
+               <div class="navbar-header">
+                   <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                       <span class="sr-only">Toggle navigation</span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                       <span class="icon-bar"></span>
+                   </button>
+                   <a class="navbar-brand topnav" href="#">Start Bootstrap</a>
+               </div>
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li class="nav-item">
+            <% if current_user %>
+              <a class="nav-link" href="<%= link_to "Sign Out", signout_path %>Welcome <%= current_user.first_name %>!</a>
+              <% else %>
+              <a class="nav-link" href="<%= link_to "Sign in", "/auth/google_oauth2" %></a>
+            <% end %>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Dock</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#">About us</a>
+          </li>
+        </ul>
+    </div>
+</div>
+</nav> -->
 
     <!-- Header -->
     <header class="intro-header">
         <div class="container">
             <div class="intro-message">
-                <h1>Landing Page</h1>
-                <h3>A Template by Start Bootstrap</h3>
+                <h1>Never miss a <strong>Concert Again</strong></h1>
+                <h3>Just <strong>Dock.it</strong> to track the <strong>EVENT</strong></h3>
                 <hr class="intro-divider">
                 <ul class="list-inline intro-social-buttons">
                     <li class="list-inline-item">
-                        <a href="#" class="btn btn-secondary btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                        <a href="#" class="btn btn-secondary btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Dock.it</span></a>
                     </li>
-                    <li class="list-inline-item">
+                    <!-- <li class="list-inline-item">
                         <a href="#" class="btn btn-secondary btn-lg"><i class="fa fa-github fa-fw"></i> <span class="network-name">Github</span></a>
                     </li>
                     <li class="list-inline-item">
                         <a href="#" class="btn btn-secondary btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                    </li>
+                    </li> -->
                 </ul>
             </div>
         </div>
@@ -122,11 +201,9 @@
 
 
 
+    <%= yield %>
 
-
-
-
-
+    <%= render 'navigation/footer' %>
 
 
 

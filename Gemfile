@@ -11,7 +11,7 @@ end
 
 ruby '2.4.1'
 gem 'rails', '~> 5.1.1'
-
+gem "binding_of_caller"
 # Use Puma as the app server
 
 gem 'puma', '~> 3.7'
@@ -24,8 +24,12 @@ gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
+
+# gem 'bcrypt', '~> 3.1.7'
+
 gem 'bcrypt', '~> 3.1.7'
 gem 'hirb'
+
 
 gem 'eventbrite_api'
 gem 'rails_12factor', group: :production
@@ -49,6 +53,7 @@ gem 'omniauth-google-oauth2'
 gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
 gem 'sprockets', '~> 3.0'
 gem 'jquery-rails'
+gem 'font-awesome-sass'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

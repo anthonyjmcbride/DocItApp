@@ -10,13 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-<<<<<<< HEAD
-ActiveRecord::Schema.define(version: 20170626211546) do
-=======
 
-ActiveRecord::Schema.define(version: 20170621083819) do
->>>>>>> 95d96aa1551f21af64044a496902d208c41b53a3
-
+ActiveRecord::Schema.define(version: 20170627140106) do
 
   create_table "events", force: :cascade do |t|
     t.string "source"
@@ -46,7 +41,6 @@ ActiveRecord::Schema.define(version: 20170621083819) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.text "name"
     t.string "email"
     t.string "password"
     t.integer "zipcode"
@@ -64,14 +58,13 @@ ActiveRecord::Schema.define(version: 20170621083819) do
     t.string "avatar_content_type"
     t.integer "avatar_file_size"
     t.datetime "avatar_updated_at"
-<<<<<<< HEAD
-    t.string "city"
-=======
+    t.string "first_name"
+    t.string "last_name"
     t.string "refresh_token"
     t.string "access_token"
     t.string "city"
 
->>>>>>> 95d96aa1551f21af64044a496902d208c41b53a3
+
   end
 
 end

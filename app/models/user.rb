@@ -34,7 +34,7 @@ class User < ApplicationRecord
       user.uid = auth["uid"]
       user.refresh_token = auth.credentials.token
       user.access_token = auth.fetch_access_token!
-      user.name = auth["info"]["name"]
+      user.name = auth["info"]["first_name"]
     end
   end
 
