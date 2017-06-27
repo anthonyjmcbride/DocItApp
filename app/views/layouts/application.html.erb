@@ -206,6 +206,17 @@
     <%= render 'navigation/footer' %>
 
 
+
+    <% if current_user %>
+      Welcome <%= current_user.name %>!
+      <%= link_to "Logout", '/logout' %>
+    <% else %>
+    <%= link_to 'Login', '/login', remote: true %> | <%= link_to 'Signup', '/signup', remote: true %> | <%= link_to "Sign in with Google", "/auth/google_oauth2" %>
+    <% end %>
+
+
+    <%= yield %>
+
     <% if Rails.env.development? %>
       <%= console %>
     <% end %>
