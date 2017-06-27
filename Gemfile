@@ -11,7 +11,7 @@ end
 
 ruby '2.4.1'
 gem 'rails', '~> 5.1.1'
-
+gem "binding_of_caller"
 # Use Puma as the app server
 
 gem 'puma', '~> 3.7'
